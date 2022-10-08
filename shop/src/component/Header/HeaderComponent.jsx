@@ -1,4 +1,3 @@
-import { Box } from "@mantine/core";
 import {
   AppShell,
   Navbar,
@@ -11,6 +10,8 @@ import {
   Badge,
   Text,
   Tooltip,
+  Box,
+  Container,
 } from "@mantine/core";
 import { IconSearch, IconUserCircle, IconBasket } from "@tabler/icons";
 import { useState } from "react";
