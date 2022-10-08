@@ -30,6 +30,7 @@ function FooterComponent() {
     <Footer
       sx={{
         height: 470,
+        fontSize: 14,
         backgroundColor: "#f5f5f6",
         display: "flex",
         alignItems: "center",
@@ -55,19 +56,17 @@ function FooterComponent() {
               <Text sx={{ width: 180, fontWeight: 500, fontSize: "1.2rem" }}>
                 +375(33) 000-00-00
               </Text>
-              <Text sx={{ fontSize: 14 }}>справочная служба</Text>
+              <Text>справочная служба</Text>
             </Stack>
             <Stack spacing="none">
               <Text sx={{ width: 180, fontWeight: 500, fontSize: "1.2rem" }}>
                 +375(33) 000-00-00
               </Text>
-              <Text sx={{ fontSize: 14 }}>справочная служба</Text>
+              <Text>интернет-магазин</Text>
             </Stack>
           </Stack>
           <Stack>
-            <Text sx={{ fontWeight: 700, fontSize: 14 }}>
-              Оставайтесь на связи
-            </Text>
+            <Text sx={{ fontWeight: 700 }}>Оставайтесь на связи</Text>
             <Group>
               <ActionIcon variant="filled" color="green">
                 <IconBrandInstagram />
