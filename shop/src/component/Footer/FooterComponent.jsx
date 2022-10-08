@@ -29,7 +29,7 @@ function FooterComponent() {
   return (
     <Footer
       sx={{
-        height: 470,
+        minHeight: 470,
         fontSize: 14,
         backgroundColor: "#f5f5f6",
         display: "flex",
@@ -54,13 +54,21 @@ function FooterComponent() {
           />
           <Stack>
             <Stack spacing="none">
-              <Text sx={{ width: 180, fontWeight: 500, fontSize: "1.2rem" }}>
+              <Text
+                component="a"
+                href="tel:375-33-000-00-00"
+                sx={{ width: 180, fontWeight: 500, fontSize: "1.2rem" }}
+              >
                 +375(33) 000-00-00
               </Text>
               <Text>справочная служба</Text>
             </Stack>
             <Stack spacing="none">
-              <Text sx={{ width: 180, fontWeight: 500, fontSize: "1.2rem" }}>
+              <Text
+                component="a"
+                href="tel:375-33-000-00-00"
+                sx={{ width: 180, fontWeight: 500, fontSize: "1.2rem" }}
+              >
                 +375(33) 000-00-00
               </Text>
               <Text>интернет-магазин</Text>
@@ -69,23 +77,43 @@ function FooterComponent() {
           <Stack>
             <Text sx={{ fontWeight: 700 }}>Оставайтесь на связи</Text>
             <Group>
-              <ActionIcon variant="filled" color="green">
+              <ActionIcon
+                component="a"
+                href="https://mantine.dev/core/"
+                variant="filled"
+                color="green"
+              >
                 <IconBrandInstagram />
               </ActionIcon>
-              <ActionIcon variant="filled" color="green">
+              <ActionIcon
+                component="a"
+                href="https://mantine.dev/core/"
+                variant="filled"
+                color="green"
+              >
                 <IconBrandTelegram />
               </ActionIcon>
-              <ActionIcon variant="filled" color="green">
+              <ActionIcon
+                component="a"
+                href="https://mantine.dev/core/"
+                variant="filled"
+                color="green"
+              >
                 <IconBrandFacebook />
               </ActionIcon>
-              <ActionIcon variant="filled" color="green">
+              <ActionIcon
+                component="a"
+                href="https://mantine.dev/core/"
+                variant="filled"
+                color="green"
+              >
                 <IconBrandVk />
               </ActionIcon>
             </Group>
           </Stack>
         </Stack>
-        <Group align="flex-start" position="right" spacing="10%">
-          <Stack justify="flex-start">
+        <Group align="flex-start" position="right" spacing="10%" grow>
+          <Stack spacing="xs" justify="flex-start" sx={{ marginTop: 20 }}>
             <Text sx={{ fontWeight: 500 }}>О магазине</Text>
             <Text component="a" href="https://mantine.dev">
               Условия обмена и возврата
@@ -106,7 +134,7 @@ function FooterComponent() {
               Оплата
             </Text>
           </Stack>
-          <Stack justify="flex-start">
+          <Stack spacing="xs" justify="flex-start" sx={{ marginTop: 20 }}>
             <Text sx={{ fontWeight: 500 }}>Клиентам</Text>
             <Text component="a" href="https://mantine.dev">
               Личный кабинет
@@ -118,7 +146,7 @@ function FooterComponent() {
               Обратная связь
             </Text>
           </Stack>
-          <Stack justify="flex-start">
+          <Stack spacing="xs" justify="flex-start" sx={{ marginTop: 20 }}>
             <Text sx={{ fontWeight: 500 }}>Информация</Text>
             <Text component="a" href="https://mantine.dev">
               Пользовательское соглашение
