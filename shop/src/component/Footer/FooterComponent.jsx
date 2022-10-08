@@ -39,6 +39,7 @@ function FooterComponent() {
     >
       <Group
         align="flex-start"
+        grow
         sx={{
           width: 1620,
         }}
@@ -83,7 +84,50 @@ function FooterComponent() {
             </Group>
           </Stack>
         </Stack>
-        <Group>asd</Group>
+        <Group align="flex-start" position="right" spacing="10%">
+          <Stack justify="flex-start">
+            <Text sx={{ fontWeight: 500 }}>О магазине</Text>
+            <Text component="a" href="https://mantine.dev">
+              Условия обмена и возврата
+            </Text>
+            <Text component="a" href="https://mantine.dev">
+              Каталог
+            </Text>
+            <Text component="a" href="https://mantine.dev">
+              О компании
+            </Text>
+            <Text component="a" href="https://mantine.dev">
+              Контакты
+            </Text>
+            <Text component="a" href="https://mantine.dev">
+              Доставка
+            </Text>
+            <Text component="a" href="https://mantine.dev">
+              Оплата
+            </Text>
+          </Stack>
+          <Stack justify="flex-start">
+            <Text sx={{ fontWeight: 500 }}>Клиентам</Text>
+            <Text component="a" href="https://mantine.dev">
+              Личный кабинет
+            </Text>
+            <Text component="a" href="https://mantine.dev">
+              Блог
+            </Text>
+            <Text component="a" href="https://mantine.dev">
+              Обратная связь
+            </Text>
+          </Stack>
+          <Stack justify="flex-start">
+            <Text sx={{ fontWeight: 500 }}>Информация</Text>
+            <Text component="a" href="https://mantine.dev">
+              Пользовательское соглашение
+            </Text>
+            <Text component="a" href="https://mantine.dev">
+              Политика конфиденциальности
+            </Text>
+          </Stack>
+        </Group>
       </Group>
     </Footer>
   );
