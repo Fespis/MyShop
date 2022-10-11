@@ -13,87 +13,76 @@ import {
   Box,
   Container,
   Card,
+  Stack,
+  Grid,
+  Aside,
 } from "@mantine/core";
 
 function Home() {
   return (
-    <>
-      <Card shadow="sm" p="lg" radius="md" withBorder>
-        <Card.Section component="a" href="https://mantine.dev/">
-          <Image
-            src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
-            height={160}
-            alt="Norway"
-          />
-        </Card.Section>
-
-        <Group position="apart" mt="md" mb="xs">
-          <Text weight={500}>Norway Fjord Adventures</Text>
-          <Badge color="pink" variant="light">
-            On Sale
-          </Badge>
-        </Group>
-
-        <Text size="sm" color="dimmed">
-          With Fjord Tours you can explore more of the magical fjord landscapes
-          with tours and activities on and around the fjords of Norway
-        </Text>
-
-        <Button variant="light" color="blue" fullWidth mt="md" radius="md">
-          Book classic tour now
-        </Button>
-      </Card>
-      <Card shadow="sm" p="lg" radius="md" withBorder>
-        <Card.Section component="a" href="https://mantine.dev/">
-          <Image
-            src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
-            height={160}
-            alt="Norway"
-          />
-        </Card.Section>
-
-        <Group position="apart" mt="md" mb="xs">
-          <Text weight={500}>Norway Fjord Adventures</Text>
-          <Badge color="pink" variant="light">
-            On Sale
-          </Badge>
-        </Group>
-
-        <Text size="sm" color="dimmed">
-          With Fjord Tours you can explore more of the magical fjord landscapes
-          with tours and activities on and around the fjords of Norway
-        </Text>
-
-        <Button variant="light" color="blue" fullWidth mt="md" radius="md">
-          Book classic tour now
-        </Button>
-      </Card>
-      <Card shadow="sm" p="lg" radius="md" withBorder>
-        <Card.Section component="a" href="https://mantine.dev/">
-          <Image
-            src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
-            height={160}
-            alt="Norway"
-          />
-        </Card.Section>
-
-        <Group position="apart" mt="md" mb="xs">
-          <Text weight={500}>Norway Fjord Adventures</Text>
-          <Badge color="pink" variant="light">
-            On Sale
-          </Badge>
-        </Group>
-
-        <Text size="sm" color="dimmed">
-          With Fjord Tours you can explore more of the magical fjord landscapes
-          with tours and activities on and around the fjords of Norway
-        </Text>
-
-        <Button variant="light" color="blue" fullWidth mt="md" radius="md">
-          Book classic tour now
-        </Button>
-      </Card>
-    </>
+    <Container
+      p="xs"
+      size={1640}
+      px={0}
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Box>
+        <Grid columns={3}>
+          <Grid.Col
+            sx={{
+              backgroundColor: "#fff323",
+            }}
+            span={1}
+          >
+            1
+          </Grid.Col>
+          <Grid.Col
+            sx={{
+              backgroundColor: "#fff323",
+            }}
+            span={1}
+          >
+            2
+          </Grid.Col>
+          <Grid.Col
+            sx={{
+              backgroundColor: "#fff323",
+            }}
+            span={1}
+          >
+            3
+          </Grid.Col>
+          <Grid.Col
+            sx={{
+              backgroundColor: "#fff323",
+            }}
+            span={1}
+          >
+            4
+          </Grid.Col>
+          <Grid.Col
+            sx={{
+              backgroundColor: "#fff323",
+            }}
+            span={1}
+          >
+            5
+          </Grid.Col>
+          <Grid.Col
+            sx={{
+              backgroundColor: "#fff323",
+            }}
+            span={1}
+          >
+            6
+          </Grid.Col>
+        </Grid>
+      </Box>
+    </Container>
   );
 }
 
