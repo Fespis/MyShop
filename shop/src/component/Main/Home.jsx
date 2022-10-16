@@ -23,6 +23,7 @@ import {
 } from "@mantine/core";
 
 import { IconArrowNarrowRight, IconArrowNarrowLeft } from "@tabler/icons";
+import CardsCarousel from "../Elements/CarouselElement";
 
 function Home() {
   return (
@@ -67,19 +68,12 @@ function Home() {
             alt="Random unsplash image"
           />
         </SimpleGrid>
-        <Group position="apart">
+        {/* <Group position="apart">
           <Text variant="outline" sx={{ fontWeight: 500, fontSize: "1.2rem" }}>
             Смартфоны и планшеты
-          </Text>
-          <Group>
-            <ActionIcon variant="subtle">
-              <IconArrowNarrowLeft />
-            </ActionIcon>
-            <ActionIcon variant="subtle">
-              <IconArrowNarrowRight />
-            </ActionIcon>
-          </Group>
-        </Group>
+          </Text> */}
+        <CardsCarousel></CardsCarousel>
+        {/* </Group> */}
       </Stack>
     </Container>
   );
