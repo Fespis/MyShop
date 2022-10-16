@@ -28,7 +28,7 @@ function HeaderComponent() {
         justifyContent: "center",
       }}
     >
-      <Box sx={{ width: 1620 }}>
+      <Box sx={{ width: 1480 }}>
         <Group
           spacing="xl"
           sx={{ minWidth: "100%", justifyContent: "space-between" }}

@@ -41,7 +41,7 @@ function FooterComponent() {
         align="flex-start"
         grow
         sx={{
-          width: 1620,
+          width: 1480,
         }}
       >
         <Stack justify="flex-start" spacing="xl">
