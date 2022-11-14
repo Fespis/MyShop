@@ -7,64 +7,75 @@ import {
   Title,
   Button,
   useMantineTheme,
+  Image,
+  Stack,
+  Group,
 } from "@mantine/core";
+import { IconShoppingCart } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   card: {
-    height: 440,
+    height: 350,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    alignItems: "flex-start",
+    alignItems: "center",
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
 
   title: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 900,
-    color: theme.white,
+    fontWeight: 400,
+    color: theme.black,
     lineHeight: 1.2,
-    fontSize: 32,
+    fontSize: 16,
     marginTop: theme.spacing.xs,
   },
 
-  category: {
-    color: theme.white,
+  price: {
+    color: theme.black,
     opacity: 0.7,
     fontWeight: 700,
+    fontSize: 24,
     textTransform: "uppercase",
+  },
+
+  description: {
+    width: "100%",
+    height: "100%",
   },
 }));
 
-interface CardProps {
-  image: string;
-  title: string;
-  category: string;
-}
-
-function Card({ image, title, category }: CardProps) {
+function Card({ image, title, category, price }) {
   const { classes } = useStyles();
 
   return (
-    <Paper
-      shadow="md"
-      p="xl"
-      radius="md"
-      sx={{ backgroundImage: `url(${image})` }}
-      className={classes.card}
-    >
-      <div>
-        <Text className={classes.category} size="xs">
-          {category}
-        </Text>
-        <Title order={3} className={classes.title}>
+    <Paper shadow="md" p="xl" radius="md" className={classes.card}>
+      <Image
+        width={173}
+        height={173}
+        fit="contain"
+        radius="md"
+        src={image}
+        alt="Random image"
+      />
+      <Stack justify="space-between" className={classes.description}>
+        <Text order={3} className={classes.title}>
           {title}
-        </Title>
-      </div>
-      <Button variant="white" color="dark">
-        Read article
-      </Button>
+        </Text>
+        <Group position="apart">
+          <Title className={classes.price} size="xs">
+            {price}
+            <Text span sx={{ fontSize: 13 }}>
+              .00
+            </Text>
+          </Title>
+          <Button color="lime" radius="xs">
+            <IconShoppingCart />
+          </Button>
+        </Group>
+      </Stack>
     </Paper>
   );
 }
@@ -72,39 +83,59 @@ function Card({ image, title, category }: CardProps) {
 const data = [
   {
     image:
-      "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-    title: "Best forests to visit in North America",
-    category: "nature",
+      "https://static.insales-cdn.com/r/WVlQE-v_hho/rs:fit:400:0:1/q:100/plain/images/products/1/3803/414199515/large_sm_215_galaxya21s_black_front_raw.jpg@webp",
+    title: "Смартфон Samsung Galaxy A12 32GB Black (SM-A125F)",
+    category: "Смартфон",
+    price: "899",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-    title: "Hawaii beaches review: better than you think",
-    category: "beach",
+      "https://static.insales-cdn.com/r/3oGP0Ng_PRs/rs:fit:400:0:1/q:100/plain/images/products/1/2927/414198639/large_11__1_.jpg@webp",
+    title: "Смартфон Samsung Galaxy S21 128GB (SM-G991B)",
+    category: "Смартфон",
+    price: "1100",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-    title: "Mountains at night: 12 best locations to enjoy the view",
-    category: "nature",
+      "https://static.insales-cdn.com/r/96bGYLn8AE8/rs:fit:400:0:1/q:100/plain/images/products/1/3723/414199435/large_12__1_.jpg@webp",
+    title: "Смартфон Samsung Galaxy S21 256GB (SM-G991B)",
+    category: "Смартфон",
+    price: "1169",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-    title: "Aurora in Norway: when to visit for best experience",
-    category: "nature",
+      "https://static.insales-cdn.com/r/UeuMqKFKWFk/rs:fit:400:0:1/q:100/plain/images/products/1/4034/414199746/large_ae-galaxy-m31-m315-sm-m315fzkvxsg-frontblack-214808359.jpg@webp",
+    title: "Смартфон Xiaomi Mi 10T 8+128GB Black",
+    category: "Смартфон",
+    price: "2500",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-    title: "Best places to visit this winter",
-    category: "tourism",
+      "https://static.insales-cdn.com/r/cYIyc4aNUvU/rs:fit:400:0:1/q:100/plain/images/products/1/3355/414199067/large_sm_a715_galaxya71_black_front_raw__1_.jpg@webp",
+    title: "Смартфон Nokia 3.4",
+    category: "Смартфон",
+    price: "659",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1582721478779-0ae163c05a60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-    title: "Active volcanos reviews: travel at your own risk",
-    category: "nature",
+      "https://static.insales-cdn.com/r/96bGYLn8AE8/rs:fit:400:0:1/q:100/plain/images/products/1/3723/414199435/large_12__1_.jpg@webp",
+    title: "Смартфон Xiaomi Redmi 9",
+    category: "Смартфон",
+    price: "1199",
+  },
+  {
+    image:
+      "https://static.insales-cdn.com/r/cYIyc4aNUvU/rs:fit:400:0:1/q:100/plain/images/products/1/3355/414199067/large_sm_a715_galaxya71_black_front_raw__1_.jpg@webp",
+    title: "Смартфон Samsung Galaxy A31",
+    category: "Смартфон",
+    price: "1439",
+  },
+  {
+    image:
+      "https://static.insales-cdn.com/r/UeuMqKFKWFk/rs:fit:400:0:1/q:100/plain/images/products/1/4034/414199746/large_ae-galaxy-m31-m315-sm-m315fzkvxsg-frontblack-214808359.jpg@webp",
+    title: "Смартфон Samsung Galaxy A51",
+    category: "Смартфон",
+    price: "1650",
   },
 ];
 
@@ -123,13 +154,16 @@ export function CardsCarousel() {
         Смартфоны и планшеты
       </Text>
       <Carousel
-        slideSize="33.3333%"
-        breakpoints={[{ maxWidth: "sm", slideSize: "100%", slideGap: 2 }]}
+        slideSize="16.666666666%"
+        breakpoints={[
+          { maxWidth: "sm", slideSize: "50%", slideGap: 2 },
+          { maxWidth: "md", slideSize: "50%" },
+          { maxWidth: "xs", slideSize: "60%", slidesToScroll: 1 },
+        ]}
         slideGap="xl"
         align="start"
-        slidesToScroll={mobile ? 1 : 2}
         loop
-        withIndicators
+        slidesToScroll={mobile ? 1 : 2}
       >
         {slides}
       </Carousel>
