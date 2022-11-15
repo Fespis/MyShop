@@ -15,6 +15,7 @@ import { IconShoppingCart } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   card: {
+    marginBottom: 10,
     height: 350,
     display: "flex",
     flexDirection: "column",
@@ -51,7 +52,7 @@ function Card({ image, title, category, price }) {
   const { classes } = useStyles();
 
   return (
-    <Paper shadow="md" p="xl" radius="md" className={classes.card}>
+    <Paper shadow="md" p="xl" radius="xs" className={classes.card}>
       <Image
         width={173}
         height={173}
@@ -141,7 +142,7 @@ const data = [
 
 export function CardsCarousel() {
   const theme = useMantineTheme();
-  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
   const slides = data.map((item) => (
     <Carousel.Slide key={item.title}>
       <Card {...item} />
@@ -150,17 +151,17 @@ export function CardsCarousel() {
 
   return (
     <>
-      <Text variant="outline" sx={{ fontWeight: 500, fontSize: "1.2rem" }}>
+      <Text variant="outline" sx={{ fontWeight: 500, fontSize: "1.5rem" }}>
         Смартфоны и планшеты
       </Text>
       <Carousel
         slideSize="16.666666666%"
         breakpoints={[
-          { maxWidth: "sm", slideSize: "50%", slideGap: 2 },
+          { maxWidth: "sm", slideSize: "50%" },
           { maxWidth: "md", slideSize: "50%" },
           { maxWidth: "xs", slideSize: "60%", slidesToScroll: 1 },
         ]}
-        slideGap="xl"
+        slideGap="md"
         align="start"
         loop
         slidesToScroll={mobile ? 1 : 2}
