@@ -25,6 +25,7 @@ import {
 import { IconArrowNarrowRight, IconArrowNarrowLeft } from "@tabler/icons";
 import CarouselGoods from "../Carousel/CarouselGoods";
 import CarouselBanners from "../Carousel/CarouselBanners";
+import CarouselShowcases from "../Carousel/CarouselShowcases";
 
 function Home() {
   return (
@@ -71,6 +72,7 @@ function Home() {
         </SimpleGrid>
         <CarouselGoods></CarouselGoods>
         <CarouselBanners></CarouselBanners>
+        <CarouselShowcases></CarouselShowcases>
       </Stack>
     </Container>
   );

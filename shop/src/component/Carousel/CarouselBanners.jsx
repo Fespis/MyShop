@@ -132,4 +132,3 @@ export function CarouselBanners() {
 }
 
 export default CarouselBanners;
-// "xs 575" | "sm" | "md" | "lg" | "xl";
