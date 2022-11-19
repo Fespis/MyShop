@@ -12,25 +12,25 @@ import {
   Paper,
   Title,
   Button,
+  Divider,
 } from "@mantine/core";
 import { IconShoppingCart } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
-  card: {
-    height: 250,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
+  // card: {
+  //   height: 175,
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   justifyContent: "space-between",
+  //   alignItems: "center",
+  //   backgroundSize: "cover",
+  //   backgroundPosition: "center",
+  // },
 
   title: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 400,
     color: theme.black,
-    lineHeight: 1.2,
     fontSize: 16,
     marginTop: theme.spacing.xs,
   },
@@ -43,7 +43,7 @@ const useStyles = createStyles((theme) => ({
     textTransform: "uppercase",
   },
 
-  description: {
+  maxWidthClass: {
     width: "100%",
   },
 }));
@@ -55,33 +55,39 @@ function Showcases({ image, title, category, price }) {
 
   return (
     <Paper shadow="md" p="xl" radius="xs" className={classes.card}>
-      <Group position="apart" className={classes.description}>
+      <Group position="left" spacing="xs" className={classes.maxWidthClass}>
         <Image
           width={100}
-          height={100}
+          height={125}
+          sx={{ maxWidth: 100 }}
           fit="contain"
           radius="md"
           src={image}
           alt="Random image"
         />
-        <Text order={3} className={classes.title}>
-          {title}
-        </Text>
+        <Stack
+          align="center"
+          justify="space-between"
+          sx={{ maxWidth: 210, height: "100%" }}
+        >
+          <Text lineClamp={2} className={classes.title}>
+            {title}
+          </Text>
+          <Group position="apart" className={classes.maxWidthClass}>
+            <Title className={classes.price} size="xs">
+              {price}
+              <Text span sx={{ fontSize: 13 }}>
+                .00
+              </Text>
+            </Title>
+            <Button color="lime" radius="xs">
+              <IconShoppingCart />
+            </Button>
+          </Group>
+        </Stack>
       </Group>
 
-      <Stack justify="space-between" className={classes.description}>
-        <Group position="apart">
-          <Title className={classes.price} size="xs">
-            {price}
-            <Text span sx={{ fontSize: 13 }}>
-              .00
-            </Text>
-          </Title>
-          <Button color="lime" radius="xs">
-            <IconShoppingCart />
-          </Button>
-        </Group>
-      </Stack>
+      <Stack justify="space-between" className={classes.maxWidthClass}></Stack>
     </Paper>
   );
 }
@@ -123,12 +129,13 @@ const data = [
 
 export function CarouselShowcases() {
   const theme = useMantineTheme();
-  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.lg}px)`);
   const slides = data.map((item) => (
     <Carousel.Slide key={item.id}>
       <Text variant="outline" sx={{ fontWeight: 500, fontSize: "1.5rem" }}>
         {item.category}
       </Text>
+      <Divider my="sm" sx={{ paddingBottom: 10 }} />
       <Stack>
         <Showcases {...item} />
         <Showcases {...item} />
@@ -165,8 +172,9 @@ export function CarouselShowcases() {
           },
           {
             maxWidth: "xl",
-            slideSize: "33.33333%",
+            slideSize: "50%",
             slidesToScroll: 1,
+            draggable: true,
           },
         ]}
         align="start"
