@@ -92,40 +92,86 @@ function Showcases({ image, title, category, price }) {
   );
 }
 
-const data = [
-  {
-    id: 1,
-    image:
-      "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
-    title: "Смартфон Samsung Galaxy S21 128GB (SM-G991B)",
-    category: "Смартфон",
-    price: "899",
-  },
-  {
-    id: 2,
-    image:
-      "https://static.insales-cdn.com/r/-5WEpnQJI3w/rs:fit:140:0:1/plain/images/products/1/1412/493127044/compact_1.webp",
-    title: "Ноутбуки ASUS Rog Strix",
-    category: "Ноутбуки",
-    price: "1500",
-  },
-  {
-    id: 3,
-    image:
-      "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
-    title: "Телевизор Samsung Zero",
-    category: "Телевизор",
-    price: "1250",
-  },
-  {
-    id: 4,
-    image:
-      "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
-    title: "Планшет Samsung Zero",
-    category: "Планшеты",
-    price: "1250",
-  },
-];
+const data = {
+  firstCategory: [
+    {
+      id: 1,
+      image:
+        "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
+      title: "Смартфон Samsung Galaxy 5 Pro",
+      category: "Смартфон",
+      price: "899",
+    },
+    {
+      id: 2,
+      image:
+        "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
+      title: "Смартфон Xiaomi Madein India",
+      category: "Смартфон",
+      price: "2715",
+    },
+    {
+      id: 3,
+      image:
+        "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
+      title: "Смартфон Samsung Galaxy MUI8",
+      category: "Смартфон",
+      price: "1200",
+    },
+  ],
+  secondCategory: [
+    {
+      id: 1,
+      image:
+        "https://static.insales-cdn.com/r/-5WEpnQJI3w/rs:fit:140:0:1/plain/images/products/1/1412/493127044/compact_1.webp",
+      title: "Ноутбуки ASUS Giotaro",
+      category: "Ноутбуки",
+      price: "1500",
+    },
+    {
+      id: 2,
+      image:
+        "https://static.insales-cdn.com/r/-5WEpnQJI3w/rs:fit:140:0:1/plain/images/products/1/1412/493127044/compact_1.webp",
+      title: "Ноутбуки ASUS Dio",
+      category: "Ноутбуки",
+      price: "1975",
+    },
+    {
+      id: 3,
+      image:
+        "https://static.insales-cdn.com/r/-5WEpnQJI3w/rs:fit:140:0:1/plain/images/products/1/1412/493127044/compact_1.webp",
+      title: "Ноутбуки ASUS Rog Strix",
+      category: "Ноутбуки",
+      price: "2130",
+    },
+  ],
+  thirdCategory: [
+    {
+      id: 1,
+      image:
+        "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
+      title: "Телевизор Zekka Adia",
+      category: "Телевизор",
+      price: "720",
+    },
+    {
+      id: 2,
+      image:
+        "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
+      title: "Телевизор Porshe Caien",
+      category: "Телевизор",
+      price: "1860",
+    },
+    {
+      id: 3,
+      image:
+        "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
+      title: "Телевизор Samsung Zero",
+      category: "Телевизор",
+      price: "1250",
+    },
+  ],
+};
 
 export function CarouselShowcases() {
   const theme = useMantineTheme();
