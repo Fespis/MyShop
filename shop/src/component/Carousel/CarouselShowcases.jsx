@@ -92,106 +92,85 @@ function Showcases({ image, title, category, price }) {
   );
 }
 
-const firstCategory = [
+const slideData = [
   {
-    id: 1,
-    image:
-      "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
-    title: "Смартфон Samsung Galaxy 5 Pro",
     category: "Смартфон",
-    price: "899",
+    goods: [
+      {
+        image:
+          "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
+        title: "Смартфон Xiaomi F1",
+        price: "899",
+      },
+      {
+        image:
+          "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
+        title: "Смартфон Siaomi Nokia F1",
+        price: "899",
+      },
+      {
+        image:
+          "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
+        title: "Смартфон Ksiaomi WTF",
+        price: "899",
+      },
+    ],
   },
   {
-    id: 2,
-    image:
-      "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
-    title: "Смартфон Xiaomi Madein India",
-    category: "Смартфон",
-    price: "2715",
-  },
-  {
-    id: 3,
-    image:
-      "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
-    title: "Смартфон Samsung Galaxy MUI8",
-    category: "Смартфон",
-    price: "1200",
-  },
-];
-const secondCategory = [
-  {
-    id: 1,
-    image:
-      "https://static.insales-cdn.com/r/-5WEpnQJI3w/rs:fit:140:0:1/plain/images/products/1/1412/493127044/compact_1.webp",
-    title: "Ноутбуки ASUS Giotaro",
     category: "Ноутбуки",
-    price: "1500",
+    goods: [
+      {
+        image:
+          "https://static.insales-cdn.com/r/-5WEpnQJI3w/rs:fit:140:0:1/plain/images/products/1/1412/493127044/compact_1.webp",
+        title: "Ноутбуки ASUS Giotaro",
+        price: "1500",
+      },
+      {
+        image:
+          "https://static.insales-cdn.com/r/-5WEpnQJI3w/rs:fit:140:0:1/plain/images/products/1/1412/493127044/compact_1.webp",
+        title: "Ноутбуки ASUS Dio",
+        price: "1975",
+      },
+      {
+        image:
+          "https://static.insales-cdn.com/r/-5WEpnQJI3w/rs:fit:140:0:1/plain/images/products/1/1412/493127044/compact_1.webp",
+        title: "Ноутбуки ASUS Rog Fight",
+        price: "2130",
+      },
+    ],
   },
   {
-    id: 2,
-    image:
-      "https://static.insales-cdn.com/r/-5WEpnQJI3w/rs:fit:140:0:1/plain/images/products/1/1412/493127044/compact_1.webp",
-    title: "Ноутбуки ASUS Dio",
-    category: "Ноутбуки",
-    price: "1975",
-  },
-  {
-    id: 3,
-    image:
-      "https://static.insales-cdn.com/r/-5WEpnQJI3w/rs:fit:140:0:1/plain/images/products/1/1412/493127044/compact_1.webp",
-    title: "Ноутбуки ASUS Rog Strix",
-    category: "Ноутбуки",
-    price: "2130",
-  },
-];
-const thirdCategory = [
-  {
-    id: 1,
-    image:
-      "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
-    title: "Телевизор Zekka Adia",
     category: "Телевизор",
-    price: "720",
-  },
-  {
-    id: 2,
-    image:
-      "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
-    title: "Телевизор Porshe Caien",
-    category: "Телевизор",
-    price: "1860",
-  },
-  {
-    id: 3,
-    image:
-      "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
-    title: "Телевизор Samsung Zero",
-    category: "Телевизор",
-    price: "1250",
+    goods: [
+      {
+        image:
+          "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
+        title: "Телевизор Zekka Adia",
+        price: "720",
+      },
+      {
+        image:
+          "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
+        title: "Телевизор Porshe Caien",
+        price: "1860",
+      },
+      {
+        image:
+          "https://static.insales-cdn.com/r/yagq3Rups_E/rs:fit:240:240:1/plain/images/collections/1/293/81690917/medium_05.jpg@webp",
+        title: "Телевизор Samsung Zero",
+        price: "1250",
+      },
+    ],
   },
 ];
 
 export function CarouselShowcases() {
   const theme = useMantineTheme();
-  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.lg}px)`);
-  const slides = firstCategory.map((item) => (
-    <>
-      <Carousel.Slide key={item.id}>
-        <Text variant="outline" sx={{ fontWeight: 500, fontSize: "1.5rem" }}>
-          {item.category}
-        </Text>
-        <Divider my="sm" sx={{ paddingBottom: 10 }} />
-        <Stack>
-          <Showcases {...item} />
-        </Stack>
-      </Carousel.Slide>
-    </>
-  ));
-
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
   return (
     <>
       <Carousel
-        slideSize="25%"
+        slideSize="33.33333%"
         slidesToScroll={mobile ? 1 : 0}
         slideGap="xs"
         withControls={mobile ? true : false}
@@ -209,22 +188,28 @@ export function CarouselShowcases() {
             slidesToScroll: 1,
             draggable: true,
           },
-          {
-            maxWidth: "lg",
-            slideSize: "33.33333%%",
-            slidesToScroll: 1,
-          },
-          {
-            maxWidth: "xl",
-            slideSize: "50%",
-            slidesToScroll: 1,
-            draggable: true,
-          },
         ]}
         align="start"
         loop
       >
-        {slides}
+        {slideData.map((item) => {
+          return (
+            <Carousel.Slide key={item.category}>
+              <Text
+                variant="outline"
+                sx={{ fontWeight: 500, fontSize: "1.5rem" }}
+              >
+                {item.category}
+              </Text>
+              <Divider my="sm" sx={{ paddingBottom: 10 }} />
+              <Stack>
+                <Showcases {...item.goods[0]} />
+                <Showcases {...item.goods[1]} />
+                <Showcases {...item.goods[2]} />
+              </Stack>
+            </Carousel.Slide>
+          );
+        })}
       </Carousel>
     </>
   );
