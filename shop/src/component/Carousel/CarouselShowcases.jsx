@@ -91,7 +91,7 @@ function Showcases({ image, title, category, price }) {
 
 const slideData = [
   {
-    category: "Смартфон",
+    category: "Смартфоны",
     goods: [
       {
         image:
@@ -137,7 +137,7 @@ const slideData = [
     ],
   },
   {
-    category: "Телевизор",
+    category: "Телевизоры",
     goods: [
       {
         image:

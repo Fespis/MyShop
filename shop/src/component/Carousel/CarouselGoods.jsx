@@ -165,6 +165,7 @@ export function CardsCarousel() {
         align="start"
         loop
         slidesToScroll={mobile ? 1 : 2}
+        withControls={false}
       >
         {slides}
       </Carousel>
