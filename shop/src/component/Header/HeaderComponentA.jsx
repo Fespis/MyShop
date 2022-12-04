@@ -5,14 +5,25 @@ import {
   Group,
   Burger,
   Image,
+  Badge,
+  Text,
+  Stack,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconSearch } from "@tabler/icons";
+import {
+  IconShoppingCart,
+  IconLogin,
+  IconUserCircle,
+  IconSearch,
+} from "@tabler/icons";
+import { useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   header: {
-    paddingLeft: theme.spacing.md,
-    paddingRight: theme.spacing.md,
+    paddingLeft: theme.spacing.xl,
+    paddingRight: theme.spacing.xl,
+    position: "sticky",
+    top: 0,
   },
 
   inner: {
@@ -58,43 +69,45 @@ const useStyles = createStyles((theme) => ({
 
 const links = [
   {
-    link: "/profile",
-    label: "Профиль",
-  },
-  {
     link: "/basket",
     label: "Корзина",
+    icon: <IconShoppingCart></IconShoppingCart>,
+  },
+  {
+    link: "/profile",
+    label: "Профиль",
+    icon: <IconUserCircle></IconUserCircle>,
   },
   {
     link: "/login",
-    label: "Войти",
-  },
-  {
-    link: "/signup",
-    label: "Регистрация",
+    label: "Вход",
+    icon: <IconLogin></IconLogin>,
   },
 ];
 
 export function HeaderSearch() {
   const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
+  const [openedCatalog, setOpenedCatalog] = useState(false);
 
   const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={classes.link}
-      onClick={(event) => event.preventDefault()}
-    >
-      {link.label}
-    </a>
+    <Stack key={link.label} align="center" spacing="0">
+      {link.icon}
+      <a
+        href={link.link}
+        onClick={(event) => event.preventDefault()}
+        className={classes.link}
+      >
+        {link.label}
+      </a>
+    </Stack>
   ));
 
   return (
-    <Header height={56} className={classes.header} mb={30}>
-      <div className={classes.inner}>
+    <Header className={classes.header} mb={30}>
+      <Group position="apart">
         <Group>
-          <Burger opened={opened} onClick={toggle} size="sm" />
+          {/* <Burger opened={opened} onClick={toggle} size="sm" /> */}
           <Image
             width={100}
             height={70}
@@ -102,12 +115,16 @@ export function HeaderSearch() {
             src="https://static.insales-cdn.com/files/1/3373/16379181/original/Component_22.png"
             withPlaceholder
           />
-        </Group>
-
-        <Group>
-          <Group ml={50} spacing={5} className={classes.links}>
-            {items}
-          </Group>
+          <Badge
+            sx={{ width: 160, height: 36, cursor: "pointer" }}
+            radius="xs"
+            variant="gradient"
+            onClick={() => setOpenedCatalog((open) => !open)}
+            leftSection={<Burger opened={openedCatalog} color="#ffffff" />}
+            gradient={{ from: "teal", to: "lime", deg: 105 }}
+          >
+            <Text size="sm">Каталог</Text>
+          </Badge>
           <Autocomplete
             className={classes.search}
             placeholder="Поиск"
@@ -115,7 +132,13 @@ export function HeaderSearch() {
             data={["Смартфоны", "Телевизоры", "Видеокамеры", "Ноутбуки"]}
           />
         </Group>
-      </div>
+
+        <Group>
+          <Group ml={50} spacing={5} className={classes.links}>
+            {items}
+          </Group>
+        </Group>
+      </Group>
     </Header>
   );
 }
