@@ -51,15 +51,15 @@ function HeaderComponent() {
             >
               <Text size="sm">Каталог</Text>
             </Badge>
-            <TextInput
+            {/* <TextInput
               placeholder="Поиск"
               radius="xs"
               size="md"
               sx={{ width: "35vw", maxWidth: 700, height: 42 }}
               rightSection={<IconSearch />}
-            />
+            /> */}
           </Group>
-          <Group spacing="xs">
+          {/* <Group spacing="xs">
             <Tooltip label="Профиль">
               <Button
                 variant="default"
@@ -78,7 +78,7 @@ function HeaderComponent() {
                 <IconBasket />
               </Button>
             </Tooltip>
-          </Group>
+          </Group> */}
         </Group>
       </Box>
     </Header>

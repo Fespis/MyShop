@@ -26,12 +26,13 @@ import { IconArrowNarrowRight, IconArrowNarrowLeft } from "@tabler/icons";
 import CarouselGoods from "../Carousel/CarouselGoods";
 import CarouselBanners from "../Carousel/CarouselBanners";
 import CarouselShowcases from "../Carousel/CarouselShowcases";
+import MainCarousel from "../Carousel/MainCarousel";
 
 function Home() {
   return (
     <Container my="md" sx={{ maxWidth: 1480 }}>
       <Stack spacing="xl">
-        <SimpleGrid
+        {/* <SimpleGrid
           cols={4}
           spacing="xl"
           breakpoints={[
@@ -69,7 +70,8 @@ function Home() {
             src="https://static.insales-cdn.com/r/nHITxemcuwY/rs:fill-down:260:163:1/q:100/plain/files/1/5982/17307486/original/2.jpg"
             alt="Random unsplash image"
           />
-        </SimpleGrid>
+        </SimpleGrid> */}
+        <MainCarousel></MainCarousel>
         <CarouselGoods></CarouselGoods>
         <CarouselBanners></CarouselBanners>
         <CarouselShowcases></CarouselShowcases>
