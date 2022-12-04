@@ -112,15 +112,7 @@ export function HeaderSearch() {
             className={classes.search}
             placeholder="Поиск"
             icon={<IconSearch size={16} stroke={1.5} />}
-            data={[
-              "React",
-              "Angular",
-              "Vue",
-              "Next.js",
-              "Riot.js",
-              "Svelte",
-              "Blitz.js",
-            ]}
+            data={["Смартфоны", "Телевизоры", "Видеокамеры", "Ноутбуки"]}
           />
         </Group>
       </div>
