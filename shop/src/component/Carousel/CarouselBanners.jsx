@@ -96,7 +96,8 @@ export function CarouselBanners() {
         slideSize="33.3333%"
         slidesToScroll={mobile ? 1 : 0}
         slideGap="xs"
-        withControls={mobile ? true : false}
+        withIndicators={mobile ? true : false}
+        withControls={false}
         draggable={mobile ? true : false}
         breakpoints={[
           {
@@ -113,7 +114,7 @@ export function CarouselBanners() {
           },
           {
             maxWidth: "lg",
-            slideSize: "33.33333%%",
+            slideSize: "33.33333%",
             slidesToScroll: 1,
           },
           {

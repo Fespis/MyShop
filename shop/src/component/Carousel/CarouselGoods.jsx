@@ -66,7 +66,7 @@ function Card({ image, title, category, price }) {
           {title}
         </Text>
         <Group position="apart">
-          <Title className={classes.price} size="xs">
+          <Title className={classes.price} size="xs" >
             {price}
             <Text span sx={{ fontSize: 13 }}>
               .00
