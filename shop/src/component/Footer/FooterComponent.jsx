@@ -29,6 +29,7 @@ function FooterComponent() {
   return (
     <Footer
       sx={{
+        marginTop: 30,
         minHeight: 470,
         fontSize: 14,
         backgroundColor: "#f5f5f6",
