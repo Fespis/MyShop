@@ -116,64 +116,48 @@ const useStyles = createStyles((theme) => ({
 
 const data = [
   {
-    title: "About",
+    title: "О магазине",
     links: [
       {
-        label: "Features",
+        label: "Условия обмена и возврата",
         link: "#",
       },
       {
-        label: "Pricing",
+        label: "О компании",
         link: "#",
       },
       {
-        label: "Support",
+        label: "Контакты",
         link: "#",
       },
       {
-        label: "Forums",
+        label: "Доставка",
         link: "#",
       },
     ],
   },
   {
-    title: "Project",
+    title: "Информация",
     links: [
       {
-        label: "Contribute",
+        label: "Пользовательское соглашение",
         link: "#",
       },
       {
-        label: "Media assets",
-        link: "#",
-      },
-      {
-        label: "Changelog",
-        link: "#",
-      },
-      {
-        label: "Releases",
+        label: "Политика конфиденциальности",
         link: "#",
       },
     ],
   },
   {
-    title: "Community",
+    title: "Для клиентов",
     links: [
       {
-        label: "Join Discord",
+        label: "Блог",
         link: "#",
       },
       {
-        label: "Follow on Twitter",
-        link: "#",
-      },
-      {
-        label: "Email newsletter",
-        link: "#",
-      },
-      {
-        label: "GitHub discussions",
+        label: "Обратная связь",
         link: "#",
       },
     ],
