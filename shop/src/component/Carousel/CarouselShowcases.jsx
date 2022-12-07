@@ -78,110 +78,14 @@ function Showcases({ image, title, category, price }) {
   );
 }
 
-const slideData = [
-  {
-    category: "Смартфоны",
-    goods: [
-      {
-        image:
-          "https://static.insales-cdn.com/r/893xLRXMbrU/rs:fit:140:0:1/plain/images/products/1/3803/414199515/compact_sm_215_galaxya21s_black_front_raw.jpg@webp",
-        title: "Смартфон Samsung Galaxy A12 32GB Black (SM-A125F)",
-        price: "1200",
-      },
-      {
-        image:
-          "https://static.insales-cdn.com/r/96bGYLn8AE8/rs:fit:400:0:1/q:100/plain/images/products/1/3723/414199435/large_12__1_.jpg@webp",
-        title: "Смартфон Samsung Galaxy S21 128GB (SM-G991B)",
-        price: "1300",
-      },
-      {
-        image:
-          "https://static.insales-cdn.com/r/-Vz4S3vnVow/rs:fit:400:0:1/q:100/plain/images/products/1/3639/414199351/large_sm_a515_galaxya51_white_front_raw__1_.jpg@webp",
-        title: "Смартфон Samsung Galaxy S21 256GB (SM-G991B)",
-        price: "560",
-      },
-    ],
-  },
-  {
-    category: "Ноутбуки",
-    goods: [
-      {
-        image:
-          "https://static.insales-cdn.com/r/pyq0Flm8VOY/rs:fit:140:0:1/plain/images/products/1/7819/493133451/compact_1.webp",
-        title: `14.1" Ноутбук Haier A1410EM, Intel Celeron N4000 (1.1 ГГц), RAM 4 ГБ, eMMC 64 ГБ, Intel HD Graphics 600, Windows 10 Home, (JM02VHE08RU)`,
-        price: "1500",
-      },
-      {
-        image:
-          "https://static.insales-cdn.com/r/tFDzh6qF2Ug/rs:fit:400:0:1/q:100/plain/images/products/1/6391/493140215/large_1.webp",
-        title: `14" Ноутбук ASUS VivoBook X415JA-EK220T, Intel Core i5-1035G1 (1.0 ГГц)`,
-        price: "1975",
-      },
-      {
-        image:
-          "https://static.insales-cdn.com/r/gLnPG2Vv1YY/rs:fit:400:0:1/q:100/plain/images/products/1/2716/493152924/large_1.webp",
-        title: `16.1" Ноутбук Honor MagicBook Pro, AMD Ryzen 5 4600H (3.0 ГГц)`,
-        price: "2130",
-      },
-    ],
-  },
-  {
-    category: "Видеокамеры",
-    goods: [
-      {
-        image:
-          "https://static.insales-cdn.com/r/B2O8ckK-FJQ/rs:fit:400:0:1/q:100/plain/images/products/1/5041/494138289/large_1.webp",
-        title: "Panasonic HC-V270, Black цифровая видеокамера",
-        price: "720",
-      },
-      {
-        image:
-          "https://static.insales-cdn.com/r/JiIZIJUhBt4/rs:fit:400:0:1/q:100/plain/images/products/1/2408/494135656/large_1.webp",
-        title: "Видеокамера Panasonic HC-V770, Black",
-        price: "18600",
-      },
-      {
-        image:
-          "https://static.insales-cdn.com/r/rXoo7sJuehk/rs:fit:400:0:1/q:100/plain/images/products/1/7299/494140547/large_1.webp",
-        title:
-          "Экшн-камера GoPro Экшн-камера GoPro Hero 9 Black Edition CHDHX-901-RW, черный",
-        price: "1250",
-      },
-    ],
-  },
-  {
-    category: "Телевизоры",
-    goods: [
-      {
-        image:
-          "https://static.insales-cdn.com/r/qtnOWPh5oaM/rs:fit:400:0:1/q:100/plain/images/products/1/1399/492660087/large_1.webp",
-        title: `Ultra HD Телевизор Philips 50PUS7506/60 50"`,
-        price: "720",
-      },
-      {
-        image:
-          "https://static.insales-cdn.com/r/X8L6Psvoxjo/rs:fit:400:0:1/q:100/plain/images/products/1/5281/492647585/large_1.webp",
-        title: `4K UHD Телевизор Samsung UE70AU7100UXRU 70"`,
-        price: "1860",
-      },
-      {
-        image:
-          "https://static.insales-cdn.com/r/TTmNoflBLbI/rs:fit:400:0:1/q:100/plain/images/products/1/5514/492664202/large_1.webp",
-        title: `HD Телевизор ECON Безрамочный SMART 39" Linux с цифровым тюнером DVB-T2/DVB-C, модулем WI-FI и USB медиаплеером с поддержкой MKV видео 39"`,
-        price: "1250",
-      },
-    ],
-  },
-];
-
-export function CarouselShowcases() {
+export function CarouselShowcases(props) {
   const theme = useMantineTheme();
   // const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
   const mobile = useMediaQuery(`(max-width: 1510px)`);
   return (
     <>
       <Carousel
-        slideSize={1480 / slideData.length - 8}
+        slideSize={1480 / props.goodsData.length - 8}
         slideGap="xs"
         slidesToScroll={mobile ? 1 : 0}
         withControls={mobile ? true : false}
@@ -204,7 +108,7 @@ export function CarouselShowcases() {
         ]}
         align="start"
       >
-        {slideData.map((item) => {
+        {props.goodsData.map((item) => {
           return (
             <Carousel.Slide key={item.category}>
               <Text

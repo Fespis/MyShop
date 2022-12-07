@@ -75,7 +75,7 @@ function Card({ image, title, category, price }) {
 export function CardsCarousel(props) {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
-  const slides = props.goodsData.map((item) => (
+  const slides = props.goodsData.goods.map((item) => (
     <Carousel.Slide key={item.title}>
       <Card {...item} />
     </Carousel.Slide>
