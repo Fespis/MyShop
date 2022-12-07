@@ -3,6 +3,8 @@ import CarouselGoods from "../Carousel/CarouselGoods";
 import CarouselBanners from "../Carousel/CarouselBanners";
 import CarouselShowcases from "../Carousel/CarouselShowcases";
 import MainCarousel from "../Carousel/MainCarousel";
+import goodsData from "../../data/goodsData";
+import shuffleArray from "../../functions/shuffleArray";
 
 function Home() {
   return (
@@ -48,7 +50,11 @@ function Home() {
           />
         </SimpleGrid> */}
         <MainCarousel></MainCarousel>
-        <CarouselGoods></CarouselGoods>
+        <CarouselGoods
+          goodsData={goodsData
+            .find((category) => category === "Смартфоны")
+            .shuffleArray()}
+        ></CarouselGoods>
         <CarouselBanners></CarouselBanners>
         <CarouselShowcases></CarouselShowcases>
       </Stack>
