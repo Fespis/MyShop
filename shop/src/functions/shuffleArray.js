@@ -3,6 +3,7 @@ function shuffleArray(array) {
     let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
     [array[i], array[j]] = [array[j], array[i]];
   }
+  return array;
 }
 
 export default shuffleArray;
