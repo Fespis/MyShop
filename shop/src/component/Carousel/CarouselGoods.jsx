@@ -84,7 +84,7 @@ export function CardsCarousel(props) {
   return (
     <>
       <Text variant="outline" sx={{ fontWeight: 500, fontSize: "1.5rem" }}>
-        Смартфоны
+        {props.goodsData.category}
       </Text>
       <Carousel
         slideSize="16.666666666%"

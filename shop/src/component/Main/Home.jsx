@@ -54,6 +54,16 @@ function Home() {
         <CarouselGoods
           goodsData={getDataArray("Смартфоны", 8, goodsData)}
         ></CarouselGoods>
+        <CarouselGoods
+          goodsData={getDataArray("Ноутбуки", 8, goodsData)}
+        ></CarouselGoods>
+        <CarouselBanners></CarouselBanners>
+        <CarouselGoods
+          goodsData={getDataArray("Видеокамеры", 8, goodsData)}
+        ></CarouselGoods>
+        <CarouselGoods
+          goodsData={getDataArray("Телевизоры", 8, goodsData)}
+        ></CarouselGoods>
         <CarouselBanners></CarouselBanners>
         <CarouselShowcases
           goodsData={[
