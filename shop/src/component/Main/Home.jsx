@@ -1,28 +1,4 @@
-import {
-  AppShell,
-  Navbar,
-  Header,
-  Image,
-  Button,
-  Burger,
-  TextInput,
-  Group,
-  Badge,
-  Text,
-  Tooltip,
-  Box,
-  Container,
-  Card,
-  Stack,
-  Grid,
-  Aside,
-  SimpleGrid,
-  Skeleton,
-  useMantineTheme,
-  ActionIcon,
-} from "@mantine/core";
-
-import { IconArrowNarrowRight, IconArrowNarrowLeft } from "@tabler/icons";
+import { Container, Stack } from "@mantine/core";
 import CarouselGoods from "../Carousel/CarouselGoods";
 import CarouselBanners from "../Carousel/CarouselBanners";
 import CarouselShowcases from "../Carousel/CarouselShowcases";
