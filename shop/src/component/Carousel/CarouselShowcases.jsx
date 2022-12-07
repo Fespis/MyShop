@@ -37,12 +37,12 @@ function Showcases({ image, title, category, price }) {
       shadow="xl"
       p="xl"
       radius="xs"
-      sx={{ border: "1px solid #0000001a" }}
+      sx={{ border: "1px solid #0000001a", height: 220 }}
     >
       <Group position="apart" grow sx={{ height: 120 }}>
         <Image
           width={"6rem"}
-          height={125}
+          height={150}
           sx={{ maxWidth: 100 }}
           fit="contain"
           radius="md"
@@ -56,20 +56,22 @@ function Showcases({ image, title, category, price }) {
           className={classes.maxHeight}
         >
           <Group position="right" className={classes.maxWidth}>
-            <Text lineClamp={2}>{title}</Text>
+            <Text sx={{ fontSize: "1.1rem" }} lineClamp={2}>
+              {title}
+            </Text>
           </Group>
 
-          <Group position="right" grow className={classes.maxWidth}>
-            <Title order={4}>
+          <Stack className={classes.maxWidth}>
+            <Text sx={{ fontSize: "1.5rem" }}>
               {price}
-              <Text span sx={{ fontSize: 14 }}>
+              <Text span sx={{ fontSize: "1.1rem" }}>
                 .00
               </Text>
-            </Title>
+            </Text>
             <Button color="lime" radius="xs">
               <IconShoppingCart />
             </Button>
-          </Group>
+          </Stack>
         </Stack>
       </Group>
     </Paper>
