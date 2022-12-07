@@ -14,16 +14,16 @@ import {
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
+    marginTop: 80,
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
-    backgroundColor:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[6]
-        : theme.colors.gray[0],
     borderTop: `1px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
+
+    [theme.fn.smallerThan("sm")]: {
+      marginTop: 50,
+    },
   },
 
   logo: {
@@ -50,7 +50,7 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "space-between",
 
     [theme.fn.smallerThan("sm")]: {
-      flexDirection: "column",
+      flexDirection: "column-reverse",
       alignItems: "center",
     },
   },
@@ -60,12 +60,17 @@ const useStyles = createStyles((theme) => ({
     flexWrap: "wrap",
 
     [theme.fn.smallerThan("sm")]: {
-      display: "none",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
     },
   },
 
   wrapper: {
     width: 160,
+    [theme.fn.smallerThan("sm")]: {
+      textAlign: "center",
+    },
   },
 
   link: {
