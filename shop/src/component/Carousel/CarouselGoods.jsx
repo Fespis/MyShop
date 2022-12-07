@@ -26,23 +26,10 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 400,
-    color: theme.black,
-    lineHeight: 1.2,
-    fontSize: 16,
     marginTop: theme.spacing.xs,
   },
 
-  price: {
-    color: theme.black,
-    opacity: 0.7,
-    fontWeight: 700,
-    fontSize: 24,
-    textTransform: "uppercase",
-  },
-
-  description: {
+  maxWidthHeight: {
     width: "100%",
     height: "100%",
   },
@@ -61,17 +48,17 @@ function Card({ image, title, category, price }) {
         src={image}
         alt="Random image"
       />
-      <Stack justify="space-between" className={classes.description}>
-        <Text order={3} className={classes.title}>
+      <Stack justify="space-between" className={classes.maxWidthHeight}>
+        <Text className={classes.title} sx={{ fontSize: "1.1rem" }} lineClamp={2}>
           {title}
         </Text>
         <Group position="apart">
-          <Title className={classes.price} size="xs" >
+          <Text sx={{ fontSize: "1.5rem" }}>
             {price}
-            <Text span sx={{ fontSize: 13 }}>
+            <Text span sx={{ fontSize: "1.1rem" }}>
               .00
             </Text>
-          </Title>
+          </Text>
           <Button color="lime" radius="xs">
             <IconShoppingCart />
           </Button>
@@ -152,7 +139,7 @@ export function CardsCarousel() {
   return (
     <>
       <Text variant="outline" sx={{ fontWeight: 500, fontSize: "1.5rem" }}>
-        Смартфоны и планшеты
+        Смартфоны
       </Text>
       <Carousel
         slideSize="16.666666666%"
