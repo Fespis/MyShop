@@ -84,7 +84,7 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === "dark"
         ? theme.colors.dark[1]
         : theme.colors.gray[6],
-    fontSize: theme.fontSizes.sm,
+    fontSize: "1rem",
     paddingTop: 3,
     paddingBottom: 3,
 
@@ -94,8 +94,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    fontSize: theme.fontSizes.lg,
-    fontWeight: 700,
+    fontWeight: 500,
+    fontSize: "1.2rem",
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     marginBottom: theme.spacing.xs / 2,
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
@@ -182,7 +182,7 @@ const data = [
 function FooterComponentA() {
   const { classes } = useStyles();
   const theme = useMantineTheme();
-  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm - 1}px)`);
 
   const groupsDecstop = data.map((group) => {
     const links = group.links.map((link, index) => (
