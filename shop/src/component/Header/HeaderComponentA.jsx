@@ -10,6 +10,7 @@ import {
   Stack,
   Container,
   Divider,
+  Drawer,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -20,6 +21,7 @@ import {
 } from "@tabler/icons";
 import { useEffect } from "react";
 import { useRef, useState } from "react";
+import HeaderMobileMenu from "./HeaderMobileMenu";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -35,13 +37,13 @@ const useStyles = createStyles((theme) => ({
   },
 
   links: {
-    [theme.fn.smallerThan("md")]: {
+    [theme.fn.smallerThan("sm")]: {
       display: "none",
     },
   },
 
   search: {
-    [theme.fn.smallerThan(400)]: {
+    [theme.fn.smallerThan("sm")]: {
       display: "none",
     },
   },
@@ -102,6 +104,18 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
     }`,
   },
+
+  burgerMobile: {
+    display: "none",
+    height: 36,
+    cursor: "pointer",
+    [theme.fn.smallerThan("sm")]: {
+      display: "block",
+    },
+    "& span": {
+      margin: 0,
+    },
+  },
 }));
 
 const links = [
@@ -136,6 +150,7 @@ export function HeaderSearch() {
   const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
   const [openedCatalog, setOpenedCatalog] = useState(false);
+  const [openedMobileMenu, setOpenedMobileMenu] = useState(false);
   const [heightHeader, setHeightHeader] = useState(0);
 
   const refHeader = useRef();
@@ -175,7 +190,7 @@ export function HeaderSearch() {
               src="https://static.insales-cdn.com/files/1/3373/16379181/original/Component_22.png"
               withPlaceholder
             />
-            <Badge
+            {/* <Badge
               sx={{ width: 160, height: 36, cursor: "pointer" }}
               radius="xs"
               variant="gradient"
@@ -184,7 +199,7 @@ export function HeaderSearch() {
               gradient={{ from: "teal", to: "lime", deg: 105 }}
             >
               <Text size="sm">Каталог</Text>
-            </Badge>
+            </Badge> */}
             <Autocomplete
               className={classes.search}
               placeholder="Поиск"
@@ -197,6 +212,24 @@ export function HeaderSearch() {
             <Group ml={50} spacing={5} className={classes.links}>
               {items}
             </Group>
+            <HeaderMobileMenu
+              openedMobileMenu={openedMobileMenu}
+              setOpenedMobileMenu={setOpenedMobileMenu}
+            ></HeaderMobileMenu>
+            <Badge
+              radius="xs"
+              variant="gradient"
+              onClick={() => setOpenedMobileMenu((open) => !open)}
+              leftSection={
+                <Burger
+                  opened={openedMobileMenu}
+                  color="#ffffff"
+                  sx={{ margin: 0 }}
+                />
+              }
+              gradient={{ from: "teal", to: "lime", deg: 105 }}
+              className={classes.burgerMobile}
+            ></Badge>
           </Group>
         </Group>
         <Divider size="xs" className={classes.borderColor} />
