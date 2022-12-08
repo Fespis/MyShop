@@ -124,7 +124,7 @@ const goodsData = [
       {
         image:
           "https://static.insales-cdn.com/r/9PRz-3F0aYE/rs:fit:1000:0:1/q:100/plain/images/products/1/7819/493133451/1.webp",
-        title: `14.1" Ноутбук Haier A1410EM, Intel Celeron N4000 (1.1 ГГц), RAM 4 ГБ, eMMC 64 ГБ, Intel HD Graphics 600, Windows 10 Home, (JM02VHE08RU)`,
+        title: `14.1" Ноутбук Haier A1410EM, Intel Celeron MVP (1.1 ГГц), RAM 4 ГБ, eMMC 64 ГБ, Intel HD Graphics 600, Windows 10 Home, (JM02VHE08RU)`,
         price: "1820",
       },
       {
@@ -136,7 +136,7 @@ const goodsData = [
       {
         image:
           "https://static.insales-cdn.com/r/K-OZeECmUVI/rs:fit:1000:0:1/q:100/plain/images/products/1/3900/493137724/1.webp",
-        title: `14" Ноутбук ASUS VivoBook X415JA-EK220T, Intel Core i5-1035G1 (1.0 ГГц)`,
+        title: `14" Ноутбук ASUS VivoBook X2, Intel Core i5-1035G1 (1.0 ГГц)`,
         price: "4600",
       },
       {

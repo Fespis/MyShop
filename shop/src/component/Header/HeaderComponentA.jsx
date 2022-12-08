@@ -18,6 +18,7 @@ import {
   IconUserCircle,
   IconSearch,
 } from "@tabler/icons";
+import { useEffect } from "react";
 import { useRef, useState } from "react";
 
 const useStyles = createStyles((theme) => ({
@@ -135,13 +136,17 @@ export function HeaderSearch() {
   const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
   const [openedCatalog, setOpenedCatalog] = useState(false);
+  const [heightHeader, setHeightHeader] = useState(0);
 
   const refHeader = useRef();
 
-  // function getHeightElement(ref) {
-  //   console.log(ref.current);
-  //   return 122;
-  // }
+  useEffect(() => {
+    setHeightHeader(getHeightElement(refHeader));
+  }, []);
+
+  function getHeightElement(ref) {
+    return ref.current.clientHeight;
+  }
 
   const items = links.map((link) => (
     <Stack key={link.label} align="center" spacing="0">
@@ -158,7 +163,7 @@ export function HeaderSearch() {
 
   return (
     <>
-      {/* <Container sx={{ height: getHeightElement(refHeader) }}></Container> */}
+      <Container sx={{ height: heightHeader }}></Container>
       <Header ref={refHeader} className={classes.header} mb={30}>
         <Group position="apart" className={classes.paddingLeftRight}>
           <Group>
