@@ -16,6 +16,8 @@ import {
   Drawer,
   Collapse,
   ScrollArea,
+  Stack,
+  Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -33,12 +35,10 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     height: "100%",
-    paddingLeft: theme.spacing.md,
-    paddingRight: theme.spacing.md,
     textDecoration: "none",
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
-    fontWeight: 500,
-    fontSize: theme.fontSizes.sm,
+    fontWeight: 400,
+    fontSize: "1.1rem",
 
     [theme.fn.smallerThan("sm")]: {
       height: 42,
@@ -102,10 +102,40 @@ export function HeaderMobileMenu(props) {
 
   return (
     <Drawer
-      position="top"
       opened={props.openedMobileMenu}
       onClose={() => props.setOpenedMobileMenu(false)}
-    ></Drawer>
+      position="top"
+      padding="md"
+      size={"55%"}
+      overlayColor={
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[9]
+          : theme.colors.gray[2]
+      }
+      overlayOpacity={0.55}
+      overlayBlur={3}
+      title="Разделы"
+      sx={{ fontWeight: 500, fontSize: "1.2rem" }}
+    >
+      <ScrollArea sx={{ height: "calc(100vh - 60px)" }} px="xl" mx="-xl">
+        <Divider
+          my="sm"
+          color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
+        />
+        <Text className={classes.link}>Корзина</Text>
+        <Text className={classes.link}>Профиль</Text>
+        <Text className={classes.link}>Акции</Text>
+        <Text className={classes.link}>Блог</Text>
+        <Divider
+          my="sm"
+          color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
+        />
+        <Group position="center" grow pb="xl">
+          <Button variant="default">Войти</Button>
+          <Button>Регистрация</Button>
+        </Group>
+      </ScrollArea>
+    </Drawer>
   );
 }
 
