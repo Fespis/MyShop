@@ -18,16 +18,14 @@ import {
   ScrollArea,
   Stack,
   Title,
+  Autocomplete,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
-  IconNotification,
-  IconCode,
-  IconBook,
-  IconChartPie3,
-  IconFingerprint,
-  IconCoin,
-  IconChevronDown,
+  IconShoppingCart,
+  IconLogin,
+  IconUserCircle,
+  IconSearch,
 } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
@@ -118,6 +116,12 @@ export function HeaderMobileMenu(props) {
       sx={{ fontWeight: 500, fontSize: "1.2rem" }}
     >
       <ScrollArea sx={{ height: "calc(100vh - 60px)" }} px="xl" mx="-xl">
+        <Autocomplete
+          className={classes.search}
+          placeholder="Поиск"
+          icon={<IconSearch size={16} stroke={1.5} />}
+          data={["Смартфоны", "Телевизоры", "Видеокамеры", "Ноутбуки"]}
+        />
         <Divider
           my="sm"
           color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
