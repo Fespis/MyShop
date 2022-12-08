@@ -11,6 +11,7 @@ import {
   Container,
   Divider,
   Drawer,
+  Button,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -51,22 +52,12 @@ const useStyles = createStyles((theme) => ({
   link: {
     display: "block",
     lineHeight: 1,
-    padding: "8px 12px",
+    padding: "8px 2px",
     borderRadius: theme.radius.sm,
     textDecoration: "none",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
+    color: "#fff",
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
-
-    "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
-    },
   },
 
   bottomLink: {
@@ -164,7 +155,11 @@ export function HeaderSearch() {
   }
 
   const items = links.map((link) => (
-    <Stack key={link.label} align="center" spacing="0">
+    <Button
+      key={link.label}
+      variant="gradient"
+      gradient={{ from: "teal", to: "lime", deg: 105 }}
+    >
       {link.icon}
       <a
         href={link.link}
@@ -173,7 +168,7 @@ export function HeaderSearch() {
       >
         {link.label}
       </a>
-    </Stack>
+    </Button>
   ));
 
   return (
@@ -209,7 +204,7 @@ export function HeaderSearch() {
           </Group>
 
           <Group>
-            <Group ml={50} spacing={5} className={classes.links}>
+            <Group spacing={5} className={classes.links}>
               {items}
             </Group>
             <HeaderMobileMenu

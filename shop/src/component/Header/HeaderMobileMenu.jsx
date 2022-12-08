@@ -136,7 +136,12 @@ export function HeaderMobileMenu(props) {
         />
         <Group position="center" grow pb="xl">
           <Button variant="default">Войти</Button>
-          <Button>Регистрация</Button>
+          <Button
+            variant="gradient"
+            gradient={{ from: "teal", to: "lime", deg: 105 }}
+          >
+            Регистрация
+          </Button>
         </Group>
       </ScrollArea>
     </Drawer>
