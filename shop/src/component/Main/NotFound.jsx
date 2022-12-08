@@ -8,26 +8,26 @@ function NotFound() {
         flexDirection: "column",
       }}
     >
-      <div class="container">
-        <div class="kitty">
-          <div class="face">
-            <div class="ear"></div>
-            <div class="eye"></div>
-            <div class="mouth">
-              <div class="nose"></div>
-              <div class="whisker-1"></div>
-              <div class="whisker-2"></div>
+      <div className="container">
+        <div className="kitty">
+          <div className="face">
+            <div className="ear"></div>
+            <div className="eye"></div>
+            <div className="mouth">
+              <div className="nose"></div>
+              <div className="whisker-1"></div>
+              <div className="whisker-2"></div>
             </div>
-            <div class="body">
-              <div class="hand">
-                <div class="hand-l"></div>
-                <div class="hand-r"></div>
+            <div className="body">
+              <div className="hand">
+                <div className="hand-l"></div>
+                <div className="hand-r"></div>
               </div>
             </div>
-            <div class="tail"></div>
+            <div className="tail"></div>
           </div>
-          <div class="laptop">
-            <div class="logo"></div>
+          <div className="laptop">
+            <div className="logo"></div>
           </div>
         </div>
       </div>

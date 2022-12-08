@@ -22,6 +22,7 @@ import {
 } from "@tabler/icons";
 import { useEffect } from "react";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import HeaderMobileMenu from "./HeaderMobileMenu";
 
 const useStyles = createStyles((theme) => ({
@@ -58,6 +59,16 @@ const useStyles = createStyles((theme) => ({
     color: "#fff",
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
+  },
+
+  linkDisable: {
+    textDecoration: "none",
+    fontWeight: 400,
+    fontSize: "1rem",
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    "&:hover": {
+      textDecoration: "underline",
+    },
   },
 
   bottomLink: {
@@ -111,17 +122,17 @@ const useStyles = createStyles((theme) => ({
 
 const links = [
   {
-    link: "/basket",
+    link: "/develop",
     label: "Корзина",
     icon: <IconShoppingCart></IconShoppingCart>,
   },
   {
-    link: "/profile",
+    link: "/develop",
     label: "Профиль",
     icon: <IconUserCircle></IconUserCircle>,
   },
   {
-    link: "/login",
+    link: "/develop",
     label: "Вход",
     icon: <IconLogin></IconLogin>,
   },
@@ -154,20 +165,16 @@ export function HeaderSearch() {
     return ref.current.clientHeight;
   }
 
-  const items = links.map((link) => (
+  const items = links.map((linkItem) => (
     <Button
-      key={link.label}
+      key={linkItem.label}
       variant="gradient"
       gradient={{ from: "teal", to: "lime", deg: 105 }}
     >
-      {link.icon}
-      <a
-        href={link.link}
-        onClick={(event) => event.preventDefault()}
-        className={classes.link}
-      >
-        {link.label}
-      </a>
+      {linkItem.icon}
+      <Link to={linkItem.link} className={classes.link}>
+        {linkItem.label}
+      </Link>
     </Button>
   ));
 
@@ -178,13 +185,15 @@ export function HeaderSearch() {
         <Group position="apart" className={classes.paddingLeftRight}>
           <Group>
             {/* <Burger opened={opened} onClick={toggle} size="sm" /> */}
-            <Image
-              width={100}
-              height={70}
-              fit="contain"
-              src="https://static.insales-cdn.com/files/1/3373/16379181/original/Component_22.png"
-              withPlaceholder
-            />
+            <Link to="/">
+              <Image
+                width={100}
+                height={70}
+                fit="contain"
+                src="https://static.insales-cdn.com/files/1/3373/16379181/original/Component_22.png"
+                withPlaceholder
+              />
+            </Link>
             {/* <Badge
               sx={{ width: 160, height: 36, cursor: "pointer" }}
               radius="xs"
@@ -241,12 +250,14 @@ export function HeaderSearch() {
           >
             {categoryGoods.map((category) => {
               return (
-                <Text
+                <Link
+                  to="/develop"
+                  className={classes.linkDisable}
                   sx={{ whiteSpace: "nowrap", padding: "5px 0" }}
                   key={category}
                 >
                   {category}
-                </Text>
+                </Link>
               );
             })}
           </Group>
