@@ -8,6 +8,8 @@ import {
   Badge,
   Text,
   Stack,
+  Container,
+  Divider,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -16,13 +18,11 @@ import {
   IconUserCircle,
   IconSearch,
 } from "@tabler/icons";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   header: {
-    paddingLeft: theme.spacing.xl,
-    paddingRight: theme.spacing.xl,
-    position: "sticky",
+    position: "fixed",
     top: 0,
   },
 
@@ -65,6 +65,42 @@ const useStyles = createStyles((theme) => ({
           : theme.colors.gray[0],
     },
   },
+
+  bottomLink: {
+    padding: 0,
+    maxWidth: 1480,
+    width: "100%",
+    height: 50,
+    [theme.fn.smallerThan("1480")]: {
+      minWidth: "100wv",
+      maxWidth: "100wv",
+    },
+  },
+
+  bottomLinkList: {
+    minWidth: "max-content",
+    width: "100%",
+    height: "100%",
+    gap: 50,
+    fontWeight: 400,
+    fontSize: "1rem",
+    overflowY: "hidden",
+    [theme.fn.smallerThan("1480")]: {
+      paddingLeft: theme.spacing.md,
+      paddingRight: theme.spacing.md,
+    },
+  },
+
+  paddingLeftRight: {
+    paddingLeft: theme.spacing.md,
+    paddingRight: theme.spacing.md,
+  },
+
+  borderColor: {
+    backgroundColor: `${
+      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
+    }`,
+  },
 }));
 
 const links = [
@@ -85,10 +121,27 @@ const links = [
   },
 ];
 
+const categoryGoods = [
+  "Акции",
+  "Наушники",
+  "Игровая переферия",
+  "Смартфоны и планшеты",
+  "Компьютеры и ноутбуки",
+  "Фотокамеры и видеокамеры",
+  "Телевизоры и гарнитура",
+];
+
 export function HeaderSearch() {
   const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
   const [openedCatalog, setOpenedCatalog] = useState(false);
+
+  const refHeader = useRef();
+
+  // function getHeightElement(ref) {
+  //   console.log(ref.current);
+  //   return 122;
+  // }
 
   const items = links.map((link) => (
     <Stack key={link.label} align="center" spacing="0">
@@ -104,42 +157,69 @@ export function HeaderSearch() {
   ));
 
   return (
-    <Header className={classes.header} mb={30}>
-      <Group position="apart">
-        <Group>
-          {/* <Burger opened={opened} onClick={toggle} size="sm" /> */}
-          <Image
-            width={100}
-            height={70}
-            fit="contain"
-            src="https://static.insales-cdn.com/files/1/3373/16379181/original/Component_22.png"
-            withPlaceholder
-          />
-          <Badge
-            sx={{ width: 160, height: 36, cursor: "pointer" }}
-            radius="xs"
-            variant="gradient"
-            onClick={() => setOpenedCatalog((open) => !open)}
-            leftSection={<Burger opened={openedCatalog} color="#ffffff" />}
-            gradient={{ from: "teal", to: "lime", deg: 105 }}
-          >
-            <Text size="sm">Каталог</Text>
-          </Badge>
-          <Autocomplete
-            className={classes.search}
-            placeholder="Поиск"
-            icon={<IconSearch size={16} stroke={1.5} />}
-            data={["Смартфоны", "Телевизоры", "Видеокамеры", "Ноутбуки"]}
-          />
-        </Group>
+    <>
+      {/* <Container sx={{ height: getHeightElement(refHeader) }}></Container> */}
+      <Header ref={refHeader} className={classes.header} mb={30}>
+        <Group position="apart" className={classes.paddingLeftRight}>
+          <Group>
+            {/* <Burger opened={opened} onClick={toggle} size="sm" /> */}
+            <Image
+              width={100}
+              height={70}
+              fit="contain"
+              src="https://static.insales-cdn.com/files/1/3373/16379181/original/Component_22.png"
+              withPlaceholder
+            />
+            <Badge
+              sx={{ width: 160, height: 36, cursor: "pointer" }}
+              radius="xs"
+              variant="gradient"
+              onClick={() => setOpenedCatalog((open) => !open)}
+              leftSection={<Burger opened={openedCatalog} color="#ffffff" />}
+              gradient={{ from: "teal", to: "lime", deg: 105 }}
+            >
+              <Text size="sm">Каталог</Text>
+            </Badge>
+            <Autocomplete
+              className={classes.search}
+              placeholder="Поиск"
+              icon={<IconSearch size={16} stroke={1.5} />}
+              data={["Смартфоны", "Телевизоры", "Видеокамеры", "Ноутбуки"]}
+            />
+          </Group>
 
-        <Group>
-          <Group ml={50} spacing={5} className={classes.links}>
-            {items}
+          <Group>
+            <Group ml={50} spacing={5} className={classes.links}>
+              {items}
+            </Group>
           </Group>
         </Group>
-      </Group>
-    </Header>
+        <Divider size="xs" className={classes.borderColor} />
+        <Container className={classes.bottomLink} sx={{ overflowX: "auto" }}>
+          <Group
+            position="apart"
+            className={classes.bottomLinkList}
+            style={{
+              minWidth: "max-content",
+              width: "100%",
+              overflowY: "hidden",
+              gap: 50,
+            }}
+          >
+            {categoryGoods.map((category) => {
+              return (
+                <Text
+                  sx={{ whiteSpace: "nowrap", padding: "5px 0" }}
+                  key={category}
+                >
+                  {category}
+                </Text>
+              );
+            })}
+          </Group>
+        </Container>
+      </Header>
+    </>
   );
 }
 
