@@ -29,6 +29,10 @@ const useStyles = createStyles((theme) => ({
     top: 0,
   },
 
+  headerMargin: {
+    marginBottom: 30,
+  },
+
   inner: {
     height: 56,
     display: "flex",
@@ -195,8 +199,14 @@ export function HeaderSearch() {
 
   return (
     <>
-      <Container sx={{ height: heightHeader }}></Container>
-      <Header ref={refHeader} className={classes.header} mb={30}>
+      <Container
+        className={classes.headerMargin}
+        sx={{ height: heightHeader }}
+      ></Container>
+      <Header
+        ref={refHeader}
+        className={`${classes.header} ${classes.headerMargin}`}
+      >
         <Group position="apart" className={classes.paddingLeftRight}>
           <Group>
             {/* <Burger opened={opened} onClick={toggle} size="sm" /> */}
