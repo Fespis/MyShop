@@ -9,11 +9,7 @@ import {
   Accordion,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import {
-  IconBrandTwitter,
-  IconBrandYoutube,
-  IconBrandInstagram,
-} from "@tabler/icons";
+import { IconBrandLinkedin, IconBrandGithub } from "@tabler/icons";
 import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
@@ -257,15 +253,16 @@ function FooterComponentA() {
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          <ActionIcon size="lg">
-            <IconBrandTwitter size={18} stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg">
-            <IconBrandYoutube size={18} stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg">
-            <IconBrandInstagram size={18} stroke={1.5} />
-          </ActionIcon>
+          <a href="https://www.linkedin.com/in/fespis/">
+            <ActionIcon size="lg">
+              <IconBrandLinkedin size={18} stroke={1.5} />
+            </ActionIcon>
+          </a>
+          <a href="https://github.com/Fespis">
+            <ActionIcon size="lg">
+              <IconBrandGithub size={18} stroke={1.5} />
+            </ActionIcon>
+          </a>
         </Group>
       </Container>
     </footer>
