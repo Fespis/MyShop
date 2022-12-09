@@ -9,8 +9,8 @@ import {
   Container,
   Divider,
   Button,
+  keyframes,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
 import {
   IconShoppingCart,
   IconLogin,
@@ -21,6 +21,7 @@ import { useEffect } from "react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import HeaderMobileMenu from "./HeaderMobileMenu";
+import { IconDiscount2 } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -59,12 +60,31 @@ const useStyles = createStyles((theme) => ({
   },
 
   linkDisable: {
+    padding: "3px 0",
     textDecoration: "none",
     fontWeight: 400,
     fontSize: "1rem",
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    transition: "all .2s ease",
     "&:hover": {
-      textDecoration: "underline",
+      color: "#82c91e",
+    },
+  },
+
+  linkDisableMain: {
+    padding: "3px 5px",
+    display: "flex",
+    textDecoration: "none",
+    fontWeight: 400,
+    fontSize: "1rem",
+    color: "#82c91e",
+    borderRadius: 20,
+    background: "#fff",
+    transition: "all .2s ease",
+
+    "&:hover": {
+      color: "#fff",
+      background: "#82c91e",
     },
   },
 
@@ -136,13 +156,13 @@ const links = [
 ];
 
 const categoryGoods = [
-  "Акции",
-  "Наушники",
-  "Игровая переферия",
-  "Смартфоны и планшеты",
-  "Компьютеры и ноутбуки",
-  "Фотокамеры и видеокамеры",
-  "Телевизоры и гарнитура",
+  { category: "Акции", icon: <IconDiscount2 /> },
+  { category: "Наушники" },
+  { category: "Игровая переферия" },
+  { category: "Смартфоны и планшеты" },
+  { category: "Компьютеры и ноутбуки" },
+  { category: "Фотокамеры и видеокамеры" },
+  { category: "Телевизоры и гарнитура" },
 ];
 
 export function HeaderSearch() {
@@ -233,15 +253,21 @@ export function HeaderSearch() {
               gap: 50,
             }}
           >
-            {categoryGoods.map((category) => {
+            {categoryGoods.map((item) => {
               return (
                 <Link
                   to="/develop"
-                  className={classes.linkDisable}
-                  sx={{ whiteSpace: "nowrap", padding: "5px 0" }}
-                  key={category}
+                  className={`${!item.icon && classes.linkDisable} ${
+                    item.icon && classes.linkDisableMain
+                  }`}
+                  sx={{
+                    whiteSpace: "nowrap",
+                    padding: "5px 0",
+                  }}
+                  key={item.category}
                 >
-                  {category}
+                  {item.icon}
+                  {item.category}
                 </Link>
               );
             })}

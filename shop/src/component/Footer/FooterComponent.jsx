@@ -88,9 +88,10 @@ const useStyles = createStyles((theme) => ({
     fontSize: "1rem",
     paddingTop: 3,
     paddingBottom: 3,
-
+    textDecoration: "none",
+    transition: "all .2s ease",
     "&:hover": {
-      textDecoration: "underline",
+      color: "#82c91e",
     },
   },
 

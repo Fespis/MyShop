@@ -10,6 +10,7 @@ import {
 } from "@mantine/core";
 import { IconSearch } from "@tabler/icons";
 import { Link } from "react-router-dom";
+import { IconDiscount2 } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -34,6 +35,10 @@ const useStyles = createStyles((theme) => ({
           ? theme.colors.dark[6]
           : theme.colors.gray[0],
     }),
+  },
+
+  limeColor: {
+    color: "#82c91e",
   },
 
   linkDisableWhite: {
@@ -124,6 +129,12 @@ export function HeaderMobileMenu(props) {
           color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
         />
         <Text className={classes.link}>
+          <Link className={`${classes.link} ${classes.limeColor}`} to="/develop">
+            <IconDiscount2 />
+            Акции
+          </Link>
+        </Text>
+        <Text className={classes.link}>
           <Link className={classes.link} to="/develop">
             Корзина
           </Link>
@@ -133,11 +144,7 @@ export function HeaderMobileMenu(props) {
             Профиль
           </Link>
         </Text>
-        <Text className={classes.link}>
-          <Link className={classes.link} to="/develop">
-            Акции
-          </Link>
-        </Text>
+
         <Text className={classes.link}>
           <Link className={classes.link} to="/develop">
             Блог

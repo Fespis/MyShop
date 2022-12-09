@@ -33,10 +33,11 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 400,
     fontSize: "1rem",
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
-    "&:hover": {
-      textDecoration: "underline",
-    },
     marginTop: theme.spacing.xs,
+    transition: "all .2s ease",
+    "&:hover": {
+      color: "#82c91e",
+    },
   },
 
   linkDisableTitle: {
@@ -44,10 +45,11 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
     fontSize: "1.5rem",
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
-    "&:hover": {
-      textDecoration: "underline",
-    },
     marginTop: theme.spacing.xs,
+    transition: "all .2s ease",
+    "&:hover": {
+      color: "#82c91e",
+    },
   },
 }));
 
