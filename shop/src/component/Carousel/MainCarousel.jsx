@@ -1,6 +1,7 @@
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
 import { createStyles, Text, useMantineTheme, Image } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -49,14 +50,16 @@ function Banner({ image, mobileImage }) {
   const mobile = useMediaQuery(`(max-width: 700px)`);
 
   return (
-    <Image
-      sx={{ cursor: "pointer" }}
-      // width={"100%"}
-      height={mobile ? 250 : 500}
-      src={mobile ? mobileImage : image}
-      fit="fill"
-      alt="Random image"
-    />
+    <Link to="/develop">
+      <Image
+        sx={{ cursor: "pointer" }}
+        // width={"100%"}
+        height={mobile ? 250 : 500}
+        src={mobile ? mobileImage : image}
+        fit="fill"
+        alt="Random image"
+      />
+    </Link>
   );
 }
 

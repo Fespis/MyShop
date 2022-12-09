@@ -233,13 +233,15 @@ function FooterComponentA() {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <Image
-            width={180}
-            height={110}
-            fit="contain"
-            src="https://static.insales-cdn.com/files/1/3373/16379181/original/Component_22.png"
-            withPlaceholder
-          />
+          <Link to="/">
+            <Image
+              width={180}
+              height={110}
+              fit="contain"
+              src="https://static.insales-cdn.com/files/1/3373/16379181/original/Component_22.png"
+              withPlaceholder
+            />
+          </Link>
           <Text size="xs" color="dimmed" className={classes.description}>
             Build fully functional accessible web applications faster than ever
           </Text>
