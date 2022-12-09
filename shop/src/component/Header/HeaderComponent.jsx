@@ -10,6 +10,7 @@ import {
   Divider,
   Button,
   keyframes,
+  Text,
 } from "@mantine/core";
 import {
   IconShoppingCart,
@@ -270,14 +271,13 @@ export function HeaderSearch() {
                   className={`${!item.icon && classes.linkDisable} ${
                     item.icon && classes.linkDisableMain
                   }`}
-                  sx={{
+                  style={{
                     whiteSpace: "nowrap",
-                    padding: "5px 0",
                   }}
                   key={item.category}
                 >
                   {item.icon}
-                  {item.category}
+                  <Text>{item.category}</Text>
                 </Link>
               );
             })}
