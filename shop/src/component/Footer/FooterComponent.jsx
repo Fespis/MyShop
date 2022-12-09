@@ -14,6 +14,7 @@ import {
   IconBrandYoutube,
   IconBrandInstagram,
 } from "@tabler/icons";
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -184,18 +185,12 @@ function FooterComponentA() {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm - 1}px)`);
 
-  const groupsDecstop = data.map((group) => {
+  const groupsDesktop = data.map((group) => {
     const links = group.links.map((link, index) => (
       <>
-        <Text
-          component="a"
-          key={index}
-          className={classes.link}
-          href={link.link}
-          onClick={(event) => event.preventDefault()}
-        >
+        <Link key={index} className={classes.link} to="/develop">
           {link.label}
-        </Text>
+        </Link>
       </>
     ));
 
@@ -210,16 +205,12 @@ function FooterComponentA() {
   const groupsMobile = data.map((group) => {
     const links = group.links.map((link, index) => (
       <Accordion.Panel key={index}>
-        <Text
-          component="a"
-          className={classes.link}
-          href={link.link}
-          onClick={(event) => event.preventDefault()}
-        >
+        <Link className={classes.link} to="/develop">
           {link.label}
-        </Text>
+        </Link>
       </Accordion.Panel>
     ));
+
     return (
       <Accordion
         mx="auto"
@@ -254,7 +245,7 @@ function FooterComponentA() {
           </Text>
         </div>
         <div className={classes.groups}>
-          {mobile ? groupsMobile : groupsDecstop}
+          {mobile ? groupsMobile : groupsDesktop}
         </div>
       </Container>
       <Container className={classes.afterFooter}>
