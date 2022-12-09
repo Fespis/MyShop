@@ -17,13 +17,37 @@ import {
   TypographyStylesProvider,
 } from "@mantine/core";
 import { IconShoppingCart } from "@tabler/icons";
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   maxWidth: {
     width: "100%",
   },
+
   maxHeight: {
     height: "100%",
+  },
+
+  linkDisable: {
+    textDecoration: "none",
+    fontWeight: 400,
+    fontSize: "1rem",
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    "&:hover": {
+      textDecoration: "underline",
+    },
+    marginTop: theme.spacing.xs,
+  },
+
+  linkDisableTitle: {
+    textDecoration: "none",
+    fontWeight: 500,
+    fontSize: "1.5rem",
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    "&:hover": {
+      textDecoration: "underline",
+    },
+    marginTop: theme.spacing.xs,
   },
 }));
 
@@ -56,9 +80,9 @@ function Showcases({ image, title, category, price }) {
           className={classes.maxHeight}
         >
           <Group position="right" className={classes.maxWidth}>
-            <Text sx={{ fontSize: "1.1rem" }} lineClamp={2}>
-              {title}
-            </Text>
+            <Link to="/develop" className={classes.linkDisable}>
+              <Text lineClamp={2}>{title}</Text>
+            </Link>
           </Group>
 
           <Stack className={classes.maxWidth}>
@@ -79,8 +103,9 @@ function Showcases({ image, title, category, price }) {
 }
 
 export function CarouselShowcases(props) {
-  const theme = useMantineTheme();
   // const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
+  const { classes } = useStyles();
+  const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: 1510px)`);
   return (
     <>
@@ -111,12 +136,9 @@ export function CarouselShowcases(props) {
         {props.goodsData.map((item) => {
           return (
             <Carousel.Slide key={item.category}>
-              <Text
-                variant="outline"
-                sx={{ fontWeight: 500, fontSize: "1.5rem" }}
-              >
+              <Link to="/develop" className={classes.linkDisableTitle}>
                 {item.category}
-              </Text>
+              </Link>
               <Divider my="sm" sx={{ paddingBottom: 10 }} />
               <Stack>
                 <Showcases {...item.goods[0]} />
@@ -133,41 +155,3 @@ export function CarouselShowcases(props) {
 
 export default CarouselShowcases;
 // "xs 575" | "sm" | "md" | "lg" | "xl";
-{
-  /* <Group
-position="apart"
-spacing="xs"
-className={classes.maxWidth}
-sx={{ height: 120 }}
->
-<Image
-  width={100}
-  height={125}
-  sx={{ maxWidth: 100 }}
-  fit="contain"
-  radius="md"
-  src={image}
-  alt="Random image"
-/>
-<Stack
-  align="center"
-  justify="space-between"
-  className={classes.maxHeight}
->
-  <Text lineClamp={1}>
-    {title}
-  </Text>
-  <Group position="right" className={classes.maxWidth}>
-    <Title order={3}>
-      {price}
-      <Text span sx={{ fontSize: 14 }}>
-        .00
-      </Text>
-    </Title>
-    <Button color="lime" radius="xs">
-      <IconShoppingCart />
-    </Button>
-  </Group>
-</Stack>
-</Group> */
-}
