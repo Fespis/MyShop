@@ -36,11 +36,18 @@ const useStyles = createStyles((theme) => ({
     }),
   },
 
-  linkDisable: {
+  linkDisableWhite: {
     textDecoration: "none",
     fontWeight: 400,
     fontSize: "1.1rem",
-    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    color: theme.white,
+  },
+
+  linkDisableBlack: {
+    textDecoration: "none",
+    fontWeight: 400,
+    fontSize: "1.1rem",
+    color: theme.black,
   },
 
   subLink: {
@@ -142,7 +149,7 @@ export function HeaderMobileMenu(props) {
         />
         <Group position="center" grow pb="xl">
           <Button variant="default">
-            <Link className={classes.linkDisable} to="/develop">
+            <Link className={classes.linkDisableBlack} to="/develop">
               Войти
             </Link>
           </Button>
@@ -151,7 +158,7 @@ export function HeaderMobileMenu(props) {
             variant="gradient"
             gradient={{ from: "teal", to: "lime", deg: 105 }}
           >
-            <Link className={classes.linkDisable} to="/develop">
+            <Link className={classes.linkDisableWhite} to="/develop">
               Регистрация
             </Link>
           </Button>
