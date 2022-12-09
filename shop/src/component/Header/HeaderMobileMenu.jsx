@@ -154,7 +154,7 @@ export function HeaderMobileMenu(props) {
           my="sm"
           color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
         />
-        <Group position="center" grow pb="xl">
+        <Group position="center"  pb="xl">
           <Button variant="default">
             <Link className={classes.linkDisableBlack} to="/develop">
               Войти
