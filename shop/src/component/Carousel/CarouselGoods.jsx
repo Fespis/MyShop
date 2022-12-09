@@ -4,7 +4,6 @@ import {
   createStyles,
   Paper,
   Text,
-  Title,
   Button,
   useMantineTheme,
   Image,

@@ -38,9 +38,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 function Banner({ image }) {
-  const { classes } = useStyles();
   const theme = useMantineTheme();
-  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.xl}px)`);
 
   return (
     <Link to="/develop">

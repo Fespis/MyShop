@@ -6,11 +6,8 @@ import {
   Burger,
   Image,
   Badge,
-  Text,
-  Stack,
   Container,
   Divider,
-  Drawer,
   Button,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -149,9 +146,7 @@ const categoryGoods = [
 ];
 
 export function HeaderSearch() {
-  const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
-  const [openedCatalog, setOpenedCatalog] = useState(false);
   const [openedMobileMenu, setOpenedMobileMenu] = useState(false);
   const [heightHeader, setHeightHeader] = useState(0);
 
@@ -194,16 +189,6 @@ export function HeaderSearch() {
                 withPlaceholder
               />
             </Link>
-            {/* <Badge
-              sx={{ width: 160, height: 36, cursor: "pointer" }}
-              radius="xs"
-              variant="gradient"
-              onClick={() => setOpenedCatalog((open) => !open)}
-              leftSection={<Burger opened={openedCatalog} color="#ffffff" />}
-              gradient={{ from: "teal", to: "lime", deg: 105 }}
-            >
-              <Text size="sm">Каталог</Text>
-            </Badge> */}
             <Autocomplete
               className={classes.search}
               placeholder="Поиск"

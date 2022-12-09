@@ -1,32 +1,14 @@
 import {
   createStyles,
-  Header,
-  HoverCard,
   Group,
   Button,
-  UnstyledButton,
   Text,
-  SimpleGrid,
-  ThemeIcon,
-  Anchor,
   Divider,
-  Center,
-  Box,
-  Burger,
   Drawer,
-  Collapse,
   ScrollArea,
-  Stack,
-  Title,
   Autocomplete,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import {
-  IconShoppingCart,
-  IconLogin,
-  IconUserCircle,
-  IconSearch,
-} from "@tabler/icons";
+import { IconSearch } from "@tabler/icons";
 import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({

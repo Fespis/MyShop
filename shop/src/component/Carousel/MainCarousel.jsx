@@ -1,60 +1,16 @@
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
-import { createStyles, Text, useMantineTheme, Image } from "@mantine/core";
+import { useMantineTheme, Image } from "@mantine/core";
 import { Link } from "react-router-dom";
 import shuffleArray from "../../functions/shuffleArray";
 
-const useStyles = createStyles((theme) => ({
-  card: {
-    height: 350,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
-
-  title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 400,
-    color: theme.black,
-    lineHeight: 1.2,
-    fontSize: 16,
-    marginTop: theme.spacing.xs,
-  },
-
-  price: {
-    color: theme.black,
-    opacity: 0.7,
-    fontWeight: 700,
-    fontSize: 24,
-    textTransform: "uppercase",
-  },
-
-  description: {
-    width: "100%",
-    height: "100%",
-  },
-
-  imageBanner: {
-    position: "absolute",
-    left: 0,
-    top: 0,
-    minHeight: 500,
-  },
-}));
-
 function Banner({ image, mobileImage }) {
-  const { classes } = useStyles();
-  const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: 700px)`);
 
   return (
     <Link to="/develop">
       <Image
         sx={{ cursor: "pointer" }}
-        // width={"100%"}
         height={mobile ? 250 : 500}
         src={mobile ? mobileImage : image}
         fit="fill"
@@ -90,7 +46,6 @@ const mainBannersData = [
 
 export function MainCarousel() {
   const theme = useMantineTheme();
-  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
   const slides = shuffleArray(mainBannersData).map((item) => (
     <Carousel.Slide key={item.id}>
       <Banner {...item} />

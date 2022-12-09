@@ -103,7 +103,6 @@ function Showcases({ image, title, category, price }) {
 }
 
 export function CarouselShowcases(props) {
-  // const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: 1510px)`);
@@ -155,3 +154,16 @@ export function CarouselShowcases(props) {
 
 export default CarouselShowcases;
 // "xs 575" | "sm" | "md" | "lg" | "xl";
+// const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
+{
+  /* <Badge
+              sx={{ width: 160, height: 36, cursor: "pointer" }}
+              radius="xs"
+              variant="gradient"
+              onClick={() => setOpenedCatalog((open) => !open)}
+              leftSection={<Burger opened={openedCatalog} color="#ffffff" />}
+              gradient={{ from: "teal", to: "lime", deg: 105 }}
+            >
+              <Text size="sm">Каталог</Text>
+            </Badge> */
+}
