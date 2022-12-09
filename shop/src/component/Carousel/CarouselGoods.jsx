@@ -71,7 +71,6 @@ function Card({ image, title, category, price }) {
           to="/develop"
           className={classes.linkDisable}
           sx={{ fontSize: "1.1rem" }}
-          lineClamp={2}
         >
           <Text lineClamp={2}>{title}</Text>
         </Link>
