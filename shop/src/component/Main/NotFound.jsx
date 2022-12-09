@@ -1,3 +1,5 @@
+import { Text } from "@mantine/core";
+
 function NotFound() {
   return (
     <div
@@ -31,8 +33,7 @@ function NotFound() {
           </div>
         </div>
       </div>
-      <p>Раздел в разработке!</p>
-      <p>Прошу не мешать котику!</p>
+      <Text sx={{ fontSize: "1.3rem" }}>Раздел в разработке</Text>
     </div>
   );
 }
