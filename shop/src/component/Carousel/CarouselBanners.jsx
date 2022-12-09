@@ -1,14 +1,7 @@
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
-import {
-  createStyles,
-  Text,
-  useMantineTheme,
-  Image,
-  Group,
-  Container,
-  SimpleGrid,
-} from "@mantine/core";
+import { createStyles, Text, useMantineTheme, Image } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -50,13 +43,9 @@ function Banner({ image }) {
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.xl}px)`);
 
   return (
-    <Image
-      // width={330}
-      // height={263}
-      sx={{ cursor: "pointer" }}
-      src={image}
-      alt="Random image"
-    />
+    <Link to="/develop">
+      <Image sx={{ cursor: "pointer" }} src={image} alt="Random image" />
+    </Link>
   );
 }
 

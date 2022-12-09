@@ -2,6 +2,7 @@ import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
 import { createStyles, Text, useMantineTheme, Image } from "@mantine/core";
 import { Link } from "react-router-dom";
+import shuffleArray from "../../functions/shuffleArray";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -63,7 +64,7 @@ function Banner({ image, mobileImage }) {
   );
 }
 
-const data = [
+const mainBannersData = [
   {
     id: 1,
     mobileImage:
@@ -90,7 +91,7 @@ const data = [
 export function MainCarousel() {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
-  const slides = data.map((item) => (
+  const slides = shuffleArray(mainBannersData).map((item) => (
     <Carousel.Slide key={item.id}>
       <Banner {...item} />
     </Carousel.Slide>
