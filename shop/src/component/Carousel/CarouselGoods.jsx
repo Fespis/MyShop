@@ -12,6 +12,7 @@ import {
   Group,
 } from "@mantine/core";
 import { IconShoppingCart } from "@tabler/icons";
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -25,13 +26,31 @@ const useStyles = createStyles((theme) => ({
     backgroundPosition: "center",
   },
 
-  title: {
-    marginTop: theme.spacing.xs,
-  },
-
   maxWidthHeight: {
     width: "100%",
     height: "100%",
+  },
+
+  linkDisable: {
+    textDecoration: "none",
+    fontWeight: 400,
+    fontSize: "1rem",
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    "&:hover": {
+      textDecoration: "underline",
+    },
+    marginTop: theme.spacing.xs,
+  },
+
+  linkDisableTitle: {
+    textDecoration: "none",
+    fontWeight: 500,
+    fontSize: "1.5rem",
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    "&:hover": {
+      textDecoration: "underline",
+    },
+    marginTop: theme.spacing.xs,
   },
 }));
 
@@ -49,13 +68,14 @@ function Card({ image, title, category, price }) {
         alt="Random image"
       />
       <Stack justify="space-between" className={classes.maxWidthHeight}>
-        <Text
-          className={classes.title}
+        <Link
+          to="/develop"
+          className={classes.linkDisable}
           sx={{ fontSize: "1.1rem" }}
           lineClamp={2}
         >
-          {title}
-        </Text>
+          <Text lineClamp={2}>{title}</Text>
+        </Link>
         <Group position="apart">
           <Text sx={{ fontSize: "1.5rem" }}>
             {price}
@@ -73,6 +93,7 @@ function Card({ image, title, category, price }) {
 }
 
 export function CardsCarousel(props) {
+  const { classes } = useStyles();
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
   const slides = props.goodsData.goods.map((item) => (
@@ -83,9 +104,13 @@ export function CardsCarousel(props) {
 
   return (
     <>
-      <Text variant="outline" sx={{ fontWeight: 500, fontSize: "1.5rem" }}>
+      <Link
+        to="/develop"
+        className={classes.linkDisableTitle}
+        sx={{ fontWeight: 500, fontSize: "1.2rem" }}
+      >
         {props.goodsData.category}
-      </Text>
+      </Link>
       <Carousel
         slideSize="16.666666666%"
         breakpoints={[
