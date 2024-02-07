@@ -59,31 +59,20 @@ function Card({ image, title, category, price }) {
   const { classes } = useStyles();
 
   return (
-    <Paper shadow="md" p="xl" radius="xs" className={classes.card}>
-      <Image
-        width={173}
-        height={173}
-        fit="contain"
-        radius="md"
-        src={image}
-        alt="Random image"
-      />
-      <Stack justify="space-between" className={classes.maxWidthHeight}>
-        <Link
-          to="/develop"
-          className={classes.linkDisable}
-          sx={{ fontSize: "1.1rem" }}
-        >
+    <Paper shadow='md' p='xl' radius='xs' className={classes.card}>
+      <Image width={173} height={173} fit='contain' radius='md' src={image} alt='Random image' />
+      <Stack justify='space-between' className={classes.maxWidthHeight}>
+        <Link to='/develop' className={classes.linkDisable} sx={{ fontSize: "1.1rem" }}>
           <Text lineClamp={2}>{title}</Text>
         </Link>
-        <Group position="apart">
+        <Group position='apart'>
           <Text sx={{ fontSize: "1.5rem" }}>
             {price}
             <Text span sx={{ fontSize: "1.1rem" }}>
               .00
             </Text>
           </Text>
-          <Button color="lime" radius="xs">
+          <Button color='lime' radius='xs'>
             <IconShoppingCart />
           </Button>
         </Group>
@@ -105,24 +94,24 @@ export function CardsCarousel(props) {
   return (
     <>
       <Link
-        to="/develop"
+        to='/develop'
         className={classes.linkDisableTitle}
         sx={{ fontWeight: 500, fontSize: "1.2rem" }}
       >
         {props.goodsData.category}
       </Link>
       <Carousel
-        slideSize="16.666666666%"
+        slideSize='16.666666666%'
         breakpoints={[
           { maxWidth: "sm", slideSize: "50%" },
           { maxWidth: "md", slideSize: "50%" },
           { maxWidth: "xs", slideSize: "60%", slidesToScroll: 1 },
         ]}
-        slideGap="md"
-        align="start"
+        slideGap='md'
+        align='start'
         loop
         slidesToScroll={mobile ? 1 : 2}
-        withControls={false}
+        withControls={true}
       >
         {slides}
       </Carousel>

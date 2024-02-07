@@ -2,6 +2,7 @@ import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
 import { createStyles, Text, useMantineTheme, Image } from "@mantine/core";
 import { Link } from "react-router-dom";
+import carouselBannersData from "../../data/carouselData/carouselBannersData";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -35,40 +36,36 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     height: "100%",
   },
+
+  linkDisableTitle: {
+    textDecoration: "none",
+    fontWeight: 500,
+    fontSize: "1.5rem",
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    marginTop: theme.spacing.xs,
+    transition: "all .2s ease",
+    "&:hover": {
+      color: "#82c91e",
+    },
+  },
 }));
 
 function Banner({ image }) {
   const theme = useMantineTheme();
 
   return (
-    <Link to="/develop">
-      <Image sx={{ cursor: "pointer" }} src={image} alt="Random image" />
+    <Link to='/develop'>
+      <Image sx={{ cursor: "pointer" }} src={image} alt='Random image' />
     </Link>
   );
 }
 
-const data = [
-  {
-    id: 1,
-    image:
-      "https://static.insales-cdn.com/r/xkW41qoM3xA/rs:fill-down:469:276:1/q:100/plain/files/1/5993/17307497/original/Group_176_1a87304987b60414900d883c05384a7d.jpg",
-  },
-  {
-    id: 2,
-    image:
-      "https://static.insales-cdn.com/r/UakyJTVS7JI/rs:fill-down:469:276:1/q:100/plain/files/1/6780/16366204/original/Group_180.jpg",
-  },
-  {
-    id: 3,
-    image:
-      "https://static.insales-cdn.com/r/gJKMvf23MdI/rs:fill-down:469:276:1/q:100/plain/files/1/6782/16366206/original/Group_181.jpg",
-  },
-];
-
 export function CarouselBanners() {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
-  const slides = data.map((item) => (
+  const { classes } = useStyles();
+
+  const slides = carouselBannersData.map((item) => (
     <Carousel.Slide key={item.id}>
       <Banner {...item} />
     </Carousel.Slide>
@@ -76,13 +73,13 @@ export function CarouselBanners() {
 
   return (
     <>
-      <Text variant="outline" sx={{ fontWeight: 500, fontSize: "1.5rem" }}>
+      <Link to='/develop' className={classes.linkDisableTitle}>
         Акции
-      </Text>
+      </Link>
       <Carousel
-        slideSize="33.3333%"
+        slideSize='33.3333%'
         slidesToScroll={mobile ? 1 : 0}
-        slideGap="xs"
+        slideGap='xs'
         withIndicators={mobile ? true : false}
         withControls={false}
         draggable={mobile ? true : false}
@@ -110,7 +107,7 @@ export function CarouselBanners() {
             slidesToScroll: 1,
           },
         ]}
-        align="start"
+        align='start'
         loop
       >
         {slides}

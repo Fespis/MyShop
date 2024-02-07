@@ -11,6 +11,7 @@ import {
 import { useMediaQuery } from "@mantine/hooks";
 import { IconBrandLinkedin, IconBrandGithub } from "@tabler/icons";
 import { Link } from "react-router-dom";
+import footerCategoryInfo from "../../data/footerCategoryLinks";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -77,10 +78,7 @@ const useStyles = createStyles((theme) => ({
 
   link: {
     display: "block",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[1]
-        : theme.colors.gray[6],
+    color: theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[6],
     fontSize: "1rem",
     paddingTop: 3,
     paddingBottom: 3,
@@ -127,65 +125,15 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const data = [
-  {
-    title: "О магазине",
-    links: [
-      {
-        label: "Условия обмена и возврата",
-        link: "#",
-      },
-      {
-        label: "О компании",
-        link: "#",
-      },
-      {
-        label: "Контакты",
-        link: "#",
-      },
-      {
-        label: "Доставка",
-        link: "#",
-      },
-    ],
-  },
-  {
-    title: "Информация",
-    links: [
-      {
-        label: "Пользовательское соглашение",
-        link: "#",
-      },
-      {
-        label: "Политика конфиденциальности",
-        link: "#",
-      },
-    ],
-  },
-  {
-    title: "Для клиентов",
-    links: [
-      {
-        label: "Блог",
-        link: "#",
-      },
-      {
-        label: "Обратная связь",
-        link: "#",
-      },
-    ],
-  },
-];
-
-function FooterComponentA() {
+function FooterComponent() {
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm - 1}px)`);
 
-  const groupsDesktop = data.map((group) => {
+  const groupsDesktop = footerCategoryInfo.map((group) => {
     const links = group.links.map((link, index) => (
       <>
-        <Link key={index} className={classes.link} to="/develop">
+        <Link key={index} className={classes.link} to='/develop'>
           {link.label}
         </Link>
       </>
@@ -199,10 +147,10 @@ function FooterComponentA() {
     );
   });
 
-  const groupsMobile = data.map((group) => {
+  const groupsMobile = footerCategoryInfo.map((group) => {
     const links = group.links.map((link, index) => (
       <Accordion.Panel key={index}>
-        <Link className={classes.link} to="/develop">
+        <Link className={classes.link} to='/develop'>
           {link.label}
         </Link>
       </Accordion.Panel>
@@ -210,16 +158,14 @@ function FooterComponentA() {
 
     return (
       <Accordion
-        mx="auto"
-        variant="filled"
-        defaultValue="footerLinks"
+        mx='auto'
+        variant='filled'
+        defaultValue='footerLinks'
         className={classes.root}
         key={group.title}
       >
         <Accordion.Item value={group.title} className={classes.wrapper}>
-          <Accordion.Control className={classes.title}>
-            {group.title}
-          </Accordion.Control>
+          <Accordion.Control className={classes.title}>{group.title}</Accordion.Control>
           {links}
         </Accordion.Item>
       </Accordion>
@@ -230,36 +176,34 @@ function FooterComponentA() {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <Link to="/">
+          <Link to='/'>
             <Image
               width={180}
               height={110}
-              fit="contain"
-              src="https://static.insales-cdn.com/files/1/3373/16379181/original/Component_22.png"
+              fit='contain'
+              src='https://static.insales-cdn.com/files/1/3373/16379181/original/Component_22.png'
               withPlaceholder
             />
           </Link>
-          <Text size="xs" color="dimmed" className={classes.description}>
+          <Text size='xs' color='dimmed' className={classes.description}>
             Build fully functional accessible web applications faster than ever
           </Text>
         </div>
-        <div className={classes.groups}>
-          {mobile ? groupsMobile : groupsDesktop}
-        </div>
+        <div className={classes.groups}>{mobile ? groupsMobile : groupsDesktop}</div>
       </Container>
       <Container className={classes.afterFooter}>
-        <Text color="dimmed" size="sm">
+        <Text color='dimmed' size='sm'>
           © 2020 mantine.dev. All rights reserved.
         </Text>
 
-        <Group spacing={0} className={classes.social} position="right" noWrap>
-          <a href="https://www.linkedin.com/in/fespis/">
-            <ActionIcon size="lg">
+        <Group spacing={0} className={classes.social} position='right' noWrap>
+          <a href='https://www.linkedin.com/in/fespis/'>
+            <ActionIcon size='lg'>
               <IconBrandLinkedin size={18} stroke={1.5} />
             </ActionIcon>
           </a>
-          <a href="https://github.com/Fespis">
-            <ActionIcon size="lg">
+          <a href='https://github.com/Fespis'>
+            <ActionIcon size='lg'>
               <IconBrandGithub size={18} stroke={1.5} />
             </ActionIcon>
           </a>
@@ -269,4 +213,4 @@ function FooterComponentA() {
   );
 }
 
-export default FooterComponentA;
+export default FooterComponent;
